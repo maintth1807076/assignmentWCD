@@ -5,7 +5,6 @@
 *.settings
 /bin/*
 /target/*
-log/
 
 #gradle
 .gradle
@@ -51,5 +50,7 @@ $RECYCLE.BIN/
 #spring
 .springBeans
 
+log/
 out/
 target/
+src/test/
