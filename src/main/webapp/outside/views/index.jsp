@@ -1,6 +1,6 @@
 <body>
 <section class="home-slider owl-carousel">
-    <div class="slider-item" style="background-image: url(images/bg_1.jpg);">
+    <div class="slider-item" style="background-image: url(outside/assets/images/bg_1.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="slider-item" style="background-image: url(images/bg_2.jpg);">
+    <div class="slider-item" style="background-image: url(outside/assets/images/bg_2.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="slider-item" style="background-image: url(images/bg_3.jpg);">
+    <div class="slider-item" style="background-image: url(outside/assets/images/bg_3.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -129,7 +129,7 @@
 </section>
 
 <section class="ftco-about d-md-flex">
-    <div class="one-half img" style="background-image: url(images/about.jpg);"></div>
+    <div class="one-half img" style="background-image: url(outside/assets/images/about.jpg);"></div>
     <div class="one-half ftco-animate">
         <div class="overlap">
             <div class="heading-section ftco-animate ">
@@ -207,22 +207,26 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="menu-entry">
-                            <a href="#" class="img" style="background-image: url(images/menu-1.jpg);"></a>
+                            <a href="#" class="img"
+                               style="background-image: url(outside/assets/images/menu-1.jpg);"></a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="menu-entry mt-lg-4">
-                            <a href="#" class="img" style="background-image: url(images/menu-2.jpg);"></a>
+                            <a href="#" class="img"
+                               style="background-image: url(outside/assets/images/menu-2.jpg);"></a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="menu-entry">
-                            <a href="#" class="img" style="background-image: url(images/menu-3.jpg);"></a>
+                            <a href="#" class="img"
+                               style="background-image: url(outside/assets/images/menu-3.jpg);"></a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="menu-entry mt-lg-4">
-                            <a href="#" class="img" style="background-image: url(images/menu-4.jpg);"></a>
+                            <a href="#" class="img"
+                               style="background-image: url(outside/assets/images/menu-4.jpg);"></a>
                         </div>
                     </div>
                 </div>
@@ -231,7 +235,8 @@
     </div>
 </section>
 
-<section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url(images/bg_2.jpg);"
+<section class="ftco-counter ftco-bg-dark img" id="section-counter"
+         style="background-image: url(outside/assets/images/bg_2.jpg);"
          data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -293,7 +298,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(images/menu-1.jpg);"></a>
+                    <a href="#" class="img" style="background-image: url(outside/assets/images/menu-1.jpg);"></a>
                     <div class="text text-center pt-4">
                         <h3><a href="#">Coffee Capuccino</a></h3>
                         <p>A small river named Duden flows by their place and supplies</p>
@@ -304,7 +309,7 @@
             </div>
             <div class="col-md-3">
                 <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(images/menu-2.jpg);"></a>
+                    <a href="#" class="img" style="background-image: url(outside/assets/images/menu-2.jpg);"></a>
                     <div class="text text-center pt-4">
                         <h3><a href="#">Coffee Capuccino</a></h3>
                         <p>A small river named Duden flows by their place and supplies</p>
@@ -315,7 +320,7 @@
             </div>
             <div class="col-md-3">
                 <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(images/menu-3.jpg);"></a>
+                    <a href="#" class="img" style="background-image: url(outside/assets/images/menu-3.jpg);"></a>
                     <div class="text text-center pt-4">
                         <h3><a href="#">Coffee Capuccino</a></h3>
                         <p>A small river named Duden flows by their place and supplies</p>
@@ -326,7 +331,7 @@
             </div>
             <div class="col-md-3">
                 <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(images/menu-4.jpg);"></a>
+                    <a href="#" class="img" style="background-image: url(outside/assets/images/menu-4.jpg);"></a>
                     <div class="text text-center pt-4">
                         <h3><a href="#">Coffee Capuccino</a></h3>
                         <p>A small river named Duden flows by their place and supplies</p>
@@ -344,7 +349,7 @@
         <div class="row no-gutters">
             <div class="col-md-3 ftco-animate">
                 <a href="gallery.html" class="gallery img d-flex align-items-center"
-                   style="background-image: url(images/gallery-1.jpg);">
+                   style="background-image: url(outside/assets/images/gallery-1.jpg);">
                     <div class="icon mb-4 d-flex align-items-center justify-content-center">
                         <span class="icon-search"></span>
                     </div>
@@ -352,7 +357,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <a href="gallery.html" class="gallery img d-flex align-items-center"
-                   style="background-image: url(images/gallery-2.jpg);">
+                   style="background-image: url(outside/assets/images/gallery-2.jpg);">
                     <div class="icon mb-4 d-flex align-items-center justify-content-center">
                         <span class="icon-search"></span>
                     </div>
@@ -360,7 +365,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <a href="gallery.html" class="gallery img d-flex align-items-center"
-                   style="background-image: url(images/gallery-3.jpg);">
+                   style="background-image: url(outside/assets/images/gallery-3.jpg);">
                     <div class="icon mb-4 d-flex align-items-center justify-content-center">
                         <span class="icon-search"></span>
                     </div>
@@ -368,7 +373,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <a href="gallery.html" class="gallery img d-flex align-items-center"
-                   style="background-image: url(images/gallery-4.jpg);">
+                   style="background-image: url(outside/assets/images/gallery-4.jpg);">
                     <div class="icon mb-4 d-flex align-items-center justify-content-center">
                         <span class="icon-search"></span>
                     </div>
@@ -414,7 +419,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dish-1.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dish-1.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="#">Grilled Beef</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -428,7 +433,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dish-2.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dish-2.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="#">Grilled Beef</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -442,7 +447,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dish-3.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dish-3.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="#">Grilled Beef</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -461,7 +466,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/drink-1.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/drink-1.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="#">Lemonade Juice</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -475,7 +480,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/drink-2.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/drink-2.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="#">Pineapple Juice</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -489,7 +494,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/drink-3.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/drink-3.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="#">Soda Drinks</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -508,7 +513,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dessert-1.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dessert-1.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="#">Hot Cake Honey</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -522,7 +527,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dessert-2.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dessert-2.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="#">Hot Cake Honey</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -536,7 +541,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dessert-3.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dessert-3.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="#">Hot Cake Honey</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -557,7 +562,7 @@
     </div>
 </section>
 
-<section class="ftco-section img" id="ftco-testimony" style="background-image: url(images/bg_1.jpg);"
+<section class="ftco-section img" id="ftco-testimony" style="background-image: url(outside/assets/images/bg_1.jpg);"
          data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -580,7 +585,7 @@
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_1.jpg" alt="">
+                            <img src="outside/assets/images/person_1.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span
                                 class="position">Illustrator Designer</span></div>
@@ -596,7 +601,7 @@
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_2.jpg" alt="">
+                            <img src="outside/assets/images/person_2.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span
                                 class="position">Illustrator Designer</span></div>
@@ -611,7 +616,7 @@
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_3.jpg" alt="">
+                            <img src="outside/assets/images/person_3.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span
                                 class="position">Illustrator Designer</span></div>
@@ -626,7 +631,7 @@
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_2.jpg" alt="">
+                            <img src="outside/assets/images/person_2.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span
                                 class="position">Illustrator Designer</span></div>
@@ -641,7 +646,7 @@
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_3.jpg" alt="">
+                            <img src="outside/assets/images/person_3.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span
                                 class="position">Illustrator Designer</span></div>
@@ -664,7 +669,8 @@
         <div class="row d-flex">
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+                    <a href="blog-single.html" class="block-20"
+                       style="background-image: url('outside/assets/images/image_1.jpg');">
                     </a>
                     <div class="text py-4 d-block">
                         <div class="meta">
@@ -680,7 +686,8 @@
             </div>
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+                    <a href="blog-single.html" class="block-20"
+                       style="background-image: url('outside/assets/images/image_2.jpg');">
                     </a>
                     <div class="text py-4 d-block">
                         <div class="meta">
@@ -696,7 +703,8 @@
             </div>
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+                    <a href="blog-single.html" class="block-20"
+                       style="background-image: url('outside/assets/images/image_3.jpg');">
                     </a>
                     <div class="text py-4 d-block">
                         <div class="meta">

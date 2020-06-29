@@ -6,8 +6,7 @@
     <title>Coffee - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <dec:head></dec:head>
-    <%@ include file="style.jsp" %>
+    <%@ include file="/outside/style.jsp" %>
 </head>
 <body>
 <%--header--%>
@@ -20,7 +19,7 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="outside/views/index.jsp" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="menu.jsp" class="nav-link">Menu</a></li>
                 <li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
@@ -29,7 +28,7 @@
                     <a class="nav-link dropdown-toggle" href="room.jsp" id="dropdown04" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Shop</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="shop.jsp">Shop</a>
+                        <a class="dropdown-item" href="outside/views/shop.jsp">Shop</a>
                         <a class="dropdown-item" href="product-single.jsp">Single Product</a>
                         <a class="dropdown-item" href="room.jsp">Cart</a>
                         <a class="dropdown-item" href="checkout.jsp">Checkout</a>
@@ -67,7 +66,7 @@
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Recent Blog</h2>
                     <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                        <a class="blog-img mr-4" style="background-image: url(outside/assets/images/image_1.jpg);"></a>
                         <div class="text">
                             <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                             <div class="meta">
@@ -78,7 +77,7 @@
                         </div>
                     </div>
                     <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                        <a class="blog-img mr-4" style="background-image: url(outside/assets/images/image_2.jpg);"></a>
                         <div class="text">
                             <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                             <div class="meta">
@@ -129,6 +128,6 @@
         </div>
     </div>
 </footer>
-<%@ include file="script.jsp" %>
+<%@ include file="/outside/script.jsp" %>
 </body>
 </html>
