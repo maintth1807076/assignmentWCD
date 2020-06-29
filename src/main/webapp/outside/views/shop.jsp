@@ -1,7 +1,7 @@
 <body>
 <section class="home-slider owl-carousel">
 
-    <div class="slider-item" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+    <div class="slider-item" style="background-image: url(outside/assets/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row slider-text justify-content-center align-items-center">
@@ -48,7 +48,7 @@
                                     <div class="col-md-3">
                                         <div class="menu-entry">
                                             <a href="#" class="img"
-                                               style="background-image: url(images/menu-1.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/menu-1.jpg);"></a>
                                             <div class="text text-center pt-4">
                                                 <h3><a href="product-single.html">Coffee Capuccino</a></h3>
                                                 <p>A small river named Duden flows by their place and supplies</p>
@@ -61,7 +61,7 @@
                                     <div class="col-md-3">
                                         <div class="menu-entry">
                                             <a href="#" class="img"
-                                               style="background-image: url(images/menu-2.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/menu-2.jpg);"></a>
                                             <div class="text text-center pt-4">
                                                 <h3><a href="product-single.html">Coffee Capuccino</a></h3>
                                                 <p>A small river named Duden flows by their place and supplies</p>
@@ -74,7 +74,7 @@
                                     <div class="col-md-3">
                                         <div class="menu-entry">
                                             <a href="#" class="img"
-                                               style="background-image: url(images/menu-3.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/menu-3.jpg);"></a>
                                             <div class="text text-center pt-4">
                                                 <h3><a href="product-single.html">Coffee Capuccino</a></h3>
                                                 <p>A small river named Duden flows by their place and supplies</p>
@@ -87,7 +87,7 @@
                                     <div class="col-md-3">
                                         <div class="menu-entry">
                                             <a href="#" class="img"
-                                               style="background-image: url(images/menu-4.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/menu-4.jpg);"></a>
                                             <div class="text text-center pt-4">
                                                 <h3><a href="product-single.html">Coffee Capuccino</a></h3>
                                                 <p>A small river named Duden flows by their place and supplies</p>
@@ -105,7 +105,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dish-1.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dish-1.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Grilled Beef</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -119,7 +119,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dish-2.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dish-2.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Grilled Beef</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -133,7 +133,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dish-3.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dish-3.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Grilled Beef</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -147,7 +147,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dish-4.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dish-4.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Grilled Beef</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -161,7 +161,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dish-5.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dish-5.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Grilled Beef</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -175,7 +175,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dish-6.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dish-6.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Grilled Beef</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -194,7 +194,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/drink-1.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/drink-1.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Lemonade Juice</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -208,7 +208,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/drink-2.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/drink-2.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Pineapple Juice</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -222,7 +222,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/drink-3.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/drink-3.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Soda Drinks</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -236,7 +236,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/drink-4.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/drink-4.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Lemonade Juice</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -250,7 +250,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/drink-5.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/drink-5.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Pineapple Juice</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -264,7 +264,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/drink-6.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/drink-6.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Soda Drinks</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -283,7 +283,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dessert-1.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dessert-1.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Hot Cake Honey</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -297,7 +297,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dessert-2.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dessert-2.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Hot Cake Honey</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -311,7 +311,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dessert-3.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dessert-3.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Hot Cake Honey</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -325,7 +325,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dessert-4.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dessert-4.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Hot Cake Honey</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -339,7 +339,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dessert-5.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dessert-5.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Hot Cake Honey</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
@@ -353,7 +353,7 @@
                                     <div class="col-md-4 text-center">
                                         <div class="menu-wrap">
                                             <a href="#" class="menu-img img mb-4"
-                                               style="background-image: url(images/dessert-6.jpg);"></a>
+                                               style="background-image: url(outside/assets/images/dessert-6.jpg);"></a>
                                             <div class="text">
                                                 <h3><a href="product-single.html">Hot Cake Honey</a></h3>
                                                 <p>Far far away, behind the word mountains, far from the countries
