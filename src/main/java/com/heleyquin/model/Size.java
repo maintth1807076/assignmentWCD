@@ -4,14 +4,17 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "Size")
+public class Size {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name")
     private String name;
+
+    @OneToOne(mappedBy = "productSize")
+    private ProductSize productSize;
 
     public Integer getId() {
         return id;
@@ -29,15 +32,12 @@ public class Category {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "product")
-    private List<Product> productList;
-
-    public Category(Integer id, String name, List<Product> productList) {
+    public Size(Integer id, String name, ProductSize productSize) {
         this.id = id;
         this.name = name;
-        this.productList = productList;
+        this.productSize = productSize;
     }
 
-    public Category() {
+    public Size() {
     }
 }
