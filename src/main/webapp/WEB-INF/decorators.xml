@@ -15,4 +15,7 @@
         <pattern>/*</pattern>
 
     </decorator>
+    <decorator name="admin" page="admin/layout-admin.jsp">
+        <pattern>/admin*</pattern>
+    </decorator>
 </decorators>
