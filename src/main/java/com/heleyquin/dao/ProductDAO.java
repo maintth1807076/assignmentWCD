@@ -1,6 +1,8 @@
 package com.heleyquin.dao;
 
 import com.heleyquin.model.Product;
+import com.heleyquin.model.ProductSize;
+import com.heleyquin.model.Size;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,10 +21,55 @@ public class ProductDAO {
         em.close();
     }
 
+    public Product getProduct(int id) {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Product product = em.find(Product.class, id);
+        em.getTransaction().commit();
+        em.close();
+        return product;
+    }
+
+    public ProductSize getProductSize(int id) {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        ProductSize productSize = em.find(ProductSize.class, id);
+        em.getTransaction().commit();
+        em.close();
+        return productSize;
+    }
+
+    public Size getSize(int id) {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Size size = em.find(Size.class, id);
+        em.getTransaction().commit();
+        em.close();
+        return size;
+    }
+
     public List<Product> getAllProduct() {
         em = emf.createEntityManager();
         em.getTransaction().begin();
         List<Product> list = em.createQuery("select c from Product c", Product.class).getResultList();
+        em.getTransaction().commit();
+        em.close();
+        return list;
+    }
+
+    public List<ProductSize> getAllProductSize() {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<ProductSize> list = em.createQuery("select c from ProductSize c", ProductSize.class).getResultList();
+        em.getTransaction().commit();
+        em.close();
+        return list;
+    }
+
+    public List<Size> getAllSize() {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<Size> list = em.createQuery("select c from Size c", Size.class).getResultList();
         em.getTransaction().commit();
         em.close();
         return list;
