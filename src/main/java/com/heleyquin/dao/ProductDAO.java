@@ -30,15 +30,6 @@ public class ProductDAO {
         return product;
     }
 
-    public ProductSize getProductSize(int id) {
-        em = emf.createEntityManager();
-        em.getTransaction().begin();
-        ProductSize productSize = em.find(ProductSize.class, id);
-        em.getTransaction().commit();
-        em.close();
-        return productSize;
-    }
-
     public Size getSize(int id) {
         em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -52,15 +43,6 @@ public class ProductDAO {
         em = emf.createEntityManager();
         em.getTransaction().begin();
         List<Product> list = em.createQuery("select c from Product c", Product.class).getResultList();
-        em.getTransaction().commit();
-        em.close();
-        return list;
-    }
-
-    public List<ProductSize> getAllProductSize() {
-        em = emf.createEntityManager();
-        em.getTransaction().begin();
-        List<ProductSize> list = em.createQuery("select c from ProductSize c", ProductSize.class).getResultList();
         em.getTransaction().commit();
         em.close();
         return list;
