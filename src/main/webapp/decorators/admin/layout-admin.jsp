@@ -27,11 +27,11 @@
                         <p>Add</p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTableList">
-                        <a href="../../admin/views/add/addCategory.jsp" class="dropdown-item">
+                        <a href="admin-addCategory" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>Category</p>
                         </a>
-                        <a href="../../admin/views/add/addProduct.jsp.jsp" class="dropdown-item">
+                        <a href="admin-addProduct" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>Product</p>
                         </a>
