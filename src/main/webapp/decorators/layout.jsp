@@ -3,7 +3,7 @@
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <html>
 <head>
-    <title>Coffee - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Coffee</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%@ include file="/outside/style.jsp" %>
@@ -12,28 +12,29 @@
 <%--header--%>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="home1">Coffee<small>Blend</small></a>
+        <a class="navbar-brand" href="home">Coffee<small>Blend</small></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="home1" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="home" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="menu" class="nav-link">Menu</a></li>
                 <li class="nav-item"><a href="services" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="blog" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="about" class="nav-link">About</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="room" id="dropdown04" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Shop</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="shop">Shop</a>
-                        <a class="dropdown-item" href="product-single">Single Product</a>
-                        <a class="dropdown-item" href="room">Cart</a>
-                        <a class="dropdown-item" href="checkout">Checkout</a>
-                    </div>
-                </li>
+                <li class="nav-item"><a href="shop" class="nav-link">Shop</a></li>
+<%--                <li class="nav-item dropdown">--%>
+<%--                    <a class="nav-link dropdown-toggle" href="room" id="dropdown04" data-toggle="dropdown"--%>
+<%--                       aria-haspopup="true" aria-expanded="false">Shop</a>--%>
+<%--                    <div class="dropdown-menu" aria-labelledby="dropdown04">--%>
+<%--                        <a class="dropdown-item" href="shop">Shop</a>--%>
+<%--                        <a class="dropdown-item" href="product-single">Single Product</a>--%>
+<%--                        <a class="dropdown-item" href="room">Cart</a>--%>
+<%--                        <a class="dropdown-item" href="checkout">Checkout</a>--%>
+<%--                    </div>--%>
+<%--                </li>--%>
                 <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
                 <li class="nav-item cart"><a href="cart" class="nav-link"><span
                         class="icon icon-shopping_cart"></span><span
@@ -122,7 +123,7 @@
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                     All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a
-                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                            href="#">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>

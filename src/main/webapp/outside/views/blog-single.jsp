@@ -1,15 +1,15 @@
 <body>
 <section class="home-slider owl-carousel">
 
-    <div class="slider-item" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+    <div class="slider-item" style="background-image: url(outside/assets/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row slider-text justify-content-center align-items-center">
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-3 mt-5 bread">Blog Details</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a
-                            href="blog.html">Blog</a></span> <span>Blog Single</span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="home">Home</a></span> <span class="mr-2"><a
+                            href="blog">Blog</a></span> <span>Blog Single</span></p>
                 </div>
 
             </div>
@@ -28,7 +28,7 @@
                     enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta
                     architecto tempora.</p>
                 <p>
-                    <img src="images/image_1.jpg" alt="" class="img-fluid">
+                    <img src="outside/assets/images/image_1.jpg" alt="" class="img-fluid">
                 </p>
                 <p>Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis repellat sunt
                     doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam voluptatem soluta illo
@@ -40,7 +40,7 @@
                     dolore voluptas, omnis molestias odio dignissimos culpa ex earum nisi consequatur quos odit quasi
                     repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
                 <p>
-                    <img src="images/image_2.jpg" alt="" class="img-fluid">
+                    <img src="outside/assets/images/image_2.jpg" alt="" class="img-fluid">
                 </p>
                 <p>Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod,
                     est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab
@@ -71,7 +71,7 @@
 
                 <div class="about-author d-flex">
                     <div class="bio align-self-md-center mr-5">
-                        <img src="images/person_4.jpg" alt="Image placeholder" class="img-fluid mb-4">
+                        <img src="outside/assets/images/person_4.jpg" alt="Image placeholder" class="img-fluid mb-4">
                     </div>
                     <div class="desc align-self-md-center">
                         <h3>Lance Smith</h3>
@@ -87,7 +87,7 @@
                     <ul class="comment-list">
                         <li class="comment">
                             <div class="vcard bio">
-                                <img src="images/person_1.jpg" alt="Image placeholder">
+                                <img src="outside/assets/images/person_3.jpg" alt="Image placeholder">
                             </div>
                             <div class="comment-body">
                                 <h3>John Doe</h3>
@@ -101,7 +101,7 @@
 
                         <li class="comment">
                             <div class="vcard bio">
-                                <img src="images/person_1.jpg" alt="Image placeholder">
+                                <img src="outside/assets/images/person_3.jpg" alt="Image placeholder">
                             </div>
                             <div class="comment-body">
                                 <h3>John Doe</h3>
@@ -115,7 +115,7 @@
                             <ul class="children">
                                 <li class="comment">
                                     <div class="vcard bio">
-                                        <img src="images/person_1.jpg" alt="Image placeholder">
+                                        <img src="outside/assets/images/person_2.jpg" alt="Image placeholder">
                                     </div>
                                     <div class="comment-body">
                                         <h3>John Doe</h3>
@@ -131,7 +131,7 @@
                                     <ul class="children">
                                         <li class="comment">
                                             <div class="vcard bio">
-                                                <img src="images/person_1.jpg" alt="Image placeholder">
+                                                <img src="outside/assets/images/person_3.jpg" alt="Image placeholder">
                                             </div>
                                             <div class="comment-body">
                                                 <h3>John Doe</h3>
@@ -146,7 +146,7 @@
                                             <ul class="children">
                                                 <li class="comment">
                                                     <div class="vcard bio">
-                                                        <img src="images/person_1.jpg" alt="Image placeholder">
+                                                        <img src="outside/assets/images/person_2.jpg" alt="Image placeholder">
                                                     </div>
                                                     <div class="comment-body">
                                                         <h3>John Doe</h3>
@@ -167,7 +167,7 @@
 
                         <li class="comment">
                             <div class="vcard bio">
-                                <img src="images/person_1.jpg" alt="Image placeholder">
+                                <img src="outside/assets/images/person_2.jpg" alt="Image placeholder">
                             </div>
                             <div class="comment-body">
                                 <h3>John Doe</h3>
@@ -236,7 +236,7 @@
                 <div class="sidebar-box ftco-animate">
                     <h3>Recent Blog</h3>
                     <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                        <a class="blog-img mr-4" style="background-image: url(outside/assets/images/image_1.jpg);"></a>
                         <div class="text">
                             <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
                                 blind texts</a></h3>
@@ -248,7 +248,7 @@
                         </div>
                     </div>
                     <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                        <a class="blog-img mr-4" style="background-image: url(outside/assets/images/image_2.jpg);"></a>
                         <div class="text">
                             <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
                                 blind texts</a></h3>
@@ -260,7 +260,7 @@
                         </div>
                     </div>
                     <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
+                        <a class="blog-img mr-4" style="background-image: url(outside/assets/images/image_3.jpg);"></a>
                         <div class="text">
                             <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
                                 blind texts</a></h3>

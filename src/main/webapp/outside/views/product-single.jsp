@@ -22,21 +22,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-5 ftco-animate">
-                <a href="outside/assets/images/menu-2.jpg" class="image-popup"><img src="outside/assets/images/menu-2.jpg" class="img-fluid"
-                                                                     alt="Colorlib Template"></a>
+                <a href="${requestScope.product.thumbnail}" class="image-popup"><img src="${requestScope.product.thumbnail}" class="img-fluid"
+                                                                     alt="${requestScope.product.name}"></a>
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                <h3>Creamy Latte Coffee</h3>
-                <p class="price"><span>$4.90</span></p>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
-                    paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would
-                    have been rewritten a thousand times and everything that was left from its origin would be the word
-                    "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing
-                    the copy said could convince her and so it didn’t take long until a few insidious Copy Writers
-                    ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they
-                    abused her for their.
-                </p>
+                <h3>${requestScope.product.name}</h3>
+                <p class="price"><span>$${requestScope.product.price}</span></p>
+                <p>${requestScope.product.description}</p>
                 <div class="row mt-4">
                     <div class="col-md-6">
                         <div class="form-group d-flex">
@@ -67,7 +59,7 @@
 	             	</span>
                     </div>
                 </div>
-                <p><a href="cart.html" class="btn btn-primary py-3 px-5">Add to Cart</a></p>
+                <p><a href="cart" class="btn btn-primary py-3 px-5">Add to Cart</a></p>
             </div>
         </div>
     </div>

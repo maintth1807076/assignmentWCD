@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Coffee</title>
     <%@ include file="style-admin.jsp" %>
 </head>
 <body>
@@ -23,10 +23,27 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="navbarDropdownTableList" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">directory</i>
+                        <p>Category</p>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTableList">
+                        <a href="admin-listCategory" class="dropdown-item">
+                            <i class="fas fa-hamburger"></i>
+                            <p>List</p>
+                        </a>
+                        <a href="admin-addCategory" class="dropdown-item">
+                            <i class="fas fa-hamburger"></i>
+                            <p>Create</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarDropdownTableList1" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">add</i>
                         <p>Product</p>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTableList">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTableList1">
                         <a href="admin-listProduct" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>List</p>
@@ -38,34 +55,13 @@
                     </div>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#" id="navbarDropdownTableList1" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">content_paste</i>
-                        <p>Products</p>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTableList">
-                        <a href="" class="dropdown-item">
-                            <i class="fas fa-hamburger"></i>
-                            <p>Main Dish</p>
-                        </a>
-                        <a href="" class="dropdown-item">
-                            <i class="fas fa-hamburger"></i>
-                            <p>Drinks</p>
-                        </a>
-                        <a href="" class="dropdown-item">
-                            <i class="fas fa-hamburger"></i>
-                            <p>Desserts</p>
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../admin/views/tables/users/users.jsp">
+                    <a class="nav-link" href="admin-users">
                         <i class="material-icons">person</i>
                         <p>Users</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="../../admin/views/tables/orders/orders.jsp">
+                    <a class="nav-link" href="admin-order">
                         <i class="material-icons">assignment</i>
                         <p>Orders</p>
                     </a>

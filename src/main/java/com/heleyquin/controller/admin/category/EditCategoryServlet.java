@@ -2,6 +2,7 @@ package com.heleyquin.controller.admin.category;
 
 import com.heleyquin.dao.CategoryDAO;
 import com.heleyquin.model.Category;
+import com.heleyquin.model.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,18 +11,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "AddCategoryServlet", urlPatterns = "/admin-addCategory")
-public class AddCategoryServlet extends HttpServlet {
+@WebServlet(name = "EditCategoryServlet", urlPatterns = "/admin-editCategory")
+public class EditCategoryServlet extends HttpServlet {
     CategoryDAO categoryDAO = new CategoryDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
         String name = request.getParameter("name");
         Category category = new Category();
+        category.setId(Integer.parseInt(id));
         category.setName(name);
-        categoryDAO.insertCategory(category);
+        categoryDAO.updateCategory(category);
         response.sendRedirect("admin-listCategory");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("admin/views/category/addCategory.jsp").forward(request, response);
+        String id = request.getParameter("id");
+        if(id == null || id.length() == 0){
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+        Category category = categoryDAO.getCategory(Integer.parseInt(id));
+        request.setAttribute("category", category);
+        request.getRequestDispatcher("admin/views/category/edit.jsp").forward(request, response);
     }
 }

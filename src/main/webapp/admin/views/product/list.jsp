@@ -42,7 +42,7 @@
     <div class="col-md-12">
         <div class="card card-plain">
             <div class="card-header card-header-primary">
-                <h4 class="card-title mt-0">Drink</h4>
+                <h4 class="card-title mt-0">Product</h4>
                 <p class="card-category"></p>
             </div>
             <div class="card-body">

@@ -29,7 +29,7 @@ public class Category {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Product> productList;
 
     public Category(Integer id, String name, List<Product> productList) {
@@ -39,5 +39,9 @@ public class Category {
     }
 
     public Category() {
+    }
+
+    public List<Product> getProductList() {
+        return productList;
     }
 }

@@ -18,8 +18,6 @@ public class HomeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        request.setAttribute("products", categoryDAO.getProductsByCategory(1));
         request.getRequestDispatcher("outside/views/home.jsp").forward(request, response);
     }
 }

@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/decorators">
-<!--    <excludes>-->
-<!--        <patttern></patttern>-->
-<!--    </excludes>-->
     <excludes>
-
         <pattern>/outside/assets/images/*</pattern>
         <pattern>/outside/assets/css/*</pattern>
         <pattern>/outside/assets/js/*</pattern>
-<!--        <pattern>/outside/views/*</pattern>-->
-<!--        <pattern>/outside/views/index.jsp</pattern>-->
     </excludes>
-    <decorator name="layout" page="layout.jsp">
+    <decorator name="outside" page="layout.jsp">
         <pattern>/*</pattern>
 
     </decorator>

@@ -50,7 +50,7 @@ public class CategoryDAO {
     public void updateCategory(Category category) {
         em = emf.createEntityManager();
         em.getTransaction().begin();
-        Product entity = em.find(Product.class, category.getId());
+        Category entity = em.find(Category.class, category.getId());
         entity.setName(category.getName());
         em.getTransaction().commit();
         em.close();
