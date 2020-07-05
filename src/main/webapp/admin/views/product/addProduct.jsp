@@ -53,14 +53,21 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label>Thumbnail</label>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <input name="thumbnail" type="text">
-                                        </div>
+                                    <div>
+                                        <img width="80px" id="thumbnail-preview">
                                     </div>
+                                    <div>
+                                        <button type="button" id="upload_widget" class="btn btn-primary">Upload thumbnail</button>
+                                    </div>
+                                    <input name="thumbnail" type="hidden">
+<%--                                    <div class="row">--%>
+<%--                                        <div class="col-md-10">--%>
+<%--                                            --%>
+<%--                                        </div>--%>
+<%--                                        <div class="col-md-2">--%>
+<%--                                            --%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
                                 </div>
                             </div>
                         </div>
@@ -88,4 +95,21 @@
         </div>
     </div>
 </div>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var myWidget = cloudinary.createUploadWidget({
+            cloudName: 'kuramakyubi',
+            uploadPreset: 'vzg8snty'}, (error, result) => {
+            if (!error && result && result.event === "success") {
+                var url = "https://res.cloudinary.com/kuramakyubi/image/upload/c_fill,h_500,w_500/v1593177061/" + result.info.public_id + "." + result.info.format;
+                $("#thumbnail-preview").attr("src", url);
+                $("input[name ='thumbnail']").val(url);
+            }
+        }
+    )
+    document.getElementById("upload_widget").addEventListener("click", function(){
+        myWidget.open();
+    }, false);
+</script>
 </body>
