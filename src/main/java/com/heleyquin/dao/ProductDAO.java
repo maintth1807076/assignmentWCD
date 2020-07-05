@@ -7,6 +7,7 @@ import com.heleyquin.model.Size;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.List;
 
 public class ProductDAO {
@@ -39,13 +40,24 @@ public class ProductDAO {
         return size;
     }
 
-    public List<Product> getAllProduct() {
+    public List<Product> getAllProduct(int pageNumber, int pageSize) {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Query query = em.createQuery("select c from Product c", Product.class);
+        query.setFirstResult((pageNumber-1) * pageSize);
+        query.setMaxResults(pageSize);
+        List<Product> list = query.getResultList();
+        em.getTransaction().commit();
+        em.close();
+        return list;
+    }
+    public int getCountProduct() {
         em = emf.createEntityManager();
         em.getTransaction().begin();
         List<Product> list = em.createQuery("select c from Product c", Product.class).getResultList();
         em.getTransaction().commit();
         em.close();
-        return list;
+        return list.size();
     }
 
     public List<Size> getAllSize() {

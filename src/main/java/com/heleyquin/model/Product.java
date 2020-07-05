@@ -29,7 +29,7 @@ public class Product {
     @JoinColumn(name = "categoryId", updatable = false, insertable = false)
     private Category category;
 
-    @OneToMany(mappedBy = "productSize")
+    @OneToMany(mappedBy = "product")
     private List<ProductSize> productSizeList;
 
     public Integer getId() {
@@ -108,5 +108,13 @@ public class Product {
     }
 
     public Product() {
+    }
+
+    public Product(String name, Double price, String thumbnail, String description, Integer categoryId) {
+        this.name = name;
+        this.price = price;
+        this.thumbnail = thumbnail;
+        this.description = description;
+        this.categoryId = categoryId;
     }
 }

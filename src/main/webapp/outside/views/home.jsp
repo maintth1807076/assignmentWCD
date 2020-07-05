@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 <section class="home-slider owl-carousel">
     <div class="slider-item" style="background-image: url(outside/assets/images/bg_1.jpg);">

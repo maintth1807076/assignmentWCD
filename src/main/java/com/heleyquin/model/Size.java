@@ -13,7 +13,7 @@ public class Size {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(mappedBy = "productSize")
+    @OneToOne(mappedBy = "size")
     private ProductSize productSize;
 
     public Integer getId() {

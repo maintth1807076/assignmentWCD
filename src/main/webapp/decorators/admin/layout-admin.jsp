@@ -8,14 +8,14 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-        <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="admin/assets/img/sidebar-1.jpg">
+        <div class="logo"><a href="#" class="simple-text logo-normal">
             Coffee
         </a></div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="nav-item active ">
-                    <a class="nav-link" href="../../admin/views/dashboard.jsp">
+                    <a class="nav-link" href="admin">
                         <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
                     </a>
@@ -24,16 +24,16 @@
                     <a class="nav-link" href="#" id="navbarDropdownTableList" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">add</i>
-                        <p>Add</p>
+                        <p>Product</p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTableList">
-                        <a href="admin-addCategory" class="dropdown-item">
+                        <a href="admin-listProduct" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
-                            <p>Category</p>
+                            <p>List</p>
                         </a>
                         <a href="admin-addProduct" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
-                            <p>Product</p>
+                            <p>Create</p>
                         </a>
                     </div>
                 </li>
@@ -44,15 +44,15 @@
                         <p>Products</p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTableList">
-                        <a href="../../admin/views/tables/mainDish.jsp" class="dropdown-item">
+                        <a href="" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>Main Dish</p>
                         </a>
-                        <a href="../../admin/views/tables/mainDish.jsp" class="dropdown-item">
+                        <a href="" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>Drinks</p>
                         </a>
-                        <a href="../../admin/views/tables/products/desserts.jsp" class="dropdown-item">
+                        <a href="" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>Desserts</p>
                         </a>

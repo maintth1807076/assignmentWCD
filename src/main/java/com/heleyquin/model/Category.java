@@ -29,7 +29,7 @@ public class Category {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "category")
     private List<Product> productList;
 
     public Category(Integer id, String name, List<Product> productList) {
