@@ -20,7 +20,7 @@ public class ListProductServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pageNumber = 1;
-        int pageSize = 2;
+        int pageSize = 5;
         if(request.getParameter("page") != null) {
             pageNumber = Integer.parseInt(request.getParameter("page"));
         }
