@@ -76,11 +76,22 @@
                                 <td>${product.price}</td>
                                 <td>${product.category.name}</td>
                                 <td class="td-actions text-right">
-                                    <a href="admin-editProduct?id=${product.id}" class="material-icons">edit</a>
-                                    <button type="submit" rel="tooltip" title="Remove"
-                                            class="btn btn-danger btn-link btn-sm">
-                                        <i class="material-icons">close</i>
-                                    </button>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <span><a href="admin-editProduct?id=${product.id}" class="material-icons">edit</a></span>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>
+                                                <form action="admin-deleteProduct" method="post">
+                                                    <input type="hidden" name="id" value="${product.id}">
+                                                    <button type="submit">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </form>
+                                            </span>
+                                        </div>
+                                    </div>
+
                                 </td>
                             </tr>
                         </c:forEach>
