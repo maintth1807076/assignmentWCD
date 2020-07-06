@@ -24,6 +24,7 @@ public class AddProductServlet extends HttpServlet {
         String description = request.getParameter("description");
         String categoryId = request.getParameter("categoryId");
         Product product = new Product(name, Double.parseDouble(price), thumbnail, description, Integer.parseInt(categoryId));
+        product.setStatus(1);
         productDAO.insertProduct(product);
         response.sendRedirect("admin-listProduct");
     }

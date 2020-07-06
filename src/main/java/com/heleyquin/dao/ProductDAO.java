@@ -45,7 +45,7 @@ public class ProductDAO {
     public List<Product> getAllProduct(int pageNumber, int pageSize) {
         em = emf.createEntityManager();
         em.getTransaction().begin();
-        Query query = em.createQuery("select c from Product c", Product.class);
+        Query query = em.createQuery("select c from Product c where c.status = 1", Product.class);
         query.setFirstResult((pageNumber-1) * pageSize);
         query.setMaxResults(pageSize);
         List<Product> list = query.getResultList();
@@ -56,7 +56,7 @@ public class ProductDAO {
     public int getCountProduct() {
         em = emf.createEntityManager();
         em.getTransaction().begin();
-        List<Product> list = em.createQuery("select c from Product c", Product.class).getResultList();
+        List<Product> list = em.createQuery("select c from Product c where c.status = 1", Product.class).getResultList();
         em.getTransaction().commit();
         em.close();
         return list.size();
@@ -90,7 +90,7 @@ public class ProductDAO {
         em = emf.createEntityManager();
         em.getTransaction().begin();
         Product entity = em.find(Product.class, id);
-        em.remove(entity);
+        entity.setStatus(0);
         em.getTransaction().commit();
         em.close();
     }

@@ -22,6 +22,9 @@ public class Product {
     @Column(name = "description")
     private String description;
 
+    @Column(name= "status")
+    private Integer status;
+
     @Column(name = "categoryId")
     private Integer categoryId;
 
@@ -32,20 +35,12 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<ProductSize> productSizeList;
 
-    @ManyToMany()
-    @JoinTable(name = "productSize",
-            joinColumns = @JoinColumn(name = "productId"),
-            inverseJoinColumns = @JoinColumn(name = "sizeId")
-    )
-    private List<Size> sizes;
-
-
-    public List<Size> getSizes() {
-        return sizes;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setSizes(List<Size> sizes) {
-        this.sizes = sizes;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getId() {
@@ -124,6 +119,15 @@ public class Product {
     }
 
     public Product() {
+    }
+
+    public Product(String name, Double price, String thumbnail, String description, Integer categoryId, Integer status) {
+        this.name = name;
+        this.price = price;
+        this.thumbnail = thumbnail;
+        this.description = description;
+        this.categoryId = categoryId;
+        this.status = status;
     }
 
     public Product(String name, Double price, String thumbnail, String description, Integer categoryId) {
