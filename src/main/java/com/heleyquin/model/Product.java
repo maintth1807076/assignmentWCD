@@ -25,12 +25,28 @@ public class Product {
     @Column(name = "categoryId")
     private Integer categoryId;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "categoryId", updatable = false, insertable = false)
     private Category category;
 
     @OneToMany(mappedBy = "product")
     private List<ProductSize> productSizeList;
+
+    @ManyToMany()
+    @JoinTable(name = "productSize",
+            joinColumns = @JoinColumn(name = "productId"),
+            inverseJoinColumns = @JoinColumn(name = "sizeId")
+    )
+    private List<Size> sizes;
+
+
+    public List<Size> getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(List<Size> sizes) {
+        this.sizes = sizes;
+    }
 
     public Integer getId() {
         return id;

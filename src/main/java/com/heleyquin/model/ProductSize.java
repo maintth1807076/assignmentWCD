@@ -19,13 +19,29 @@ public class ProductSize {
     @Column(name = "pricePlus")
     private float pricePlus;
 
-    @ManyToOne
-    @JoinColumn(name = "producId", updatable = false, insertable = false)
+    @ManyToOne()
+    @JoinColumn(name = "productId", updatable = false, insertable = false)
     private Product product;
 
-    @OneToOne
+    @ManyToOne()
     @JoinColumn(name = "sizeId", updatable = false, insertable = false)
     private Size size;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
 
     public Integer getId() {
         return id;

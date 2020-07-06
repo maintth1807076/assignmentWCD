@@ -13,8 +13,11 @@ public class Size {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(mappedBy = "size")
-    private ProductSize productSize;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "sizes")
+    private List<Product> products;
+
+    @OneToMany(mappedBy = "size")
+    private List<ProductSize> productSizeList;
 
     public Integer getId() {
         return id;
@@ -32,10 +35,27 @@ public class Size {
         this.name = name;
     }
 
-    public Size(Integer id, String name, ProductSize productSize) {
+    public Size(Integer id, String name, List<Product> products, List<ProductSize> productSizeList) {
         this.id = id;
         this.name = name;
-        this.productSize = productSize;
+        this.products = products;
+        this.productSizeList = productSizeList;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public List<ProductSize> getProductSizeList() {
+        return productSizeList;
+    }
+
+    public void setProductSizeList(List<ProductSize> productSizeList) {
+        this.productSizeList = productSizeList;
     }
 
     public Size() {
