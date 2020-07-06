@@ -1,5 +1,7 @@
 package com.heleyquin.controller.admin;
 
+import com.heleyquin.model.Data;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +16,8 @@ public class AdminServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        Data a = new Data();
+//        a.addData();
         request.getRequestDispatcher("admin/views/dashboard.jsp").forward(request, response);
     }
 }

@@ -46,8 +46,8 @@
                                                        style="background-image: url(${product.thumbnail});"></a>
                                                     <div class="text text-center pt-4">
                                                         <h3><a href="product-single?id=${product.id}">${product.name}</a></h3>
-                                                        <p>A small river named Duden flows by their place and supplies</p>
-                                                        <p class="price"><span>$5.90</span></p>
+                                                        <p>${product.description}</p>
+                                                        <p class="price"><span>$${product.price}</span></p>
                                                         <p><a href="cart" class="btn btn-primary btn-outline-primary">Add
                                                             to Cart</a></p>
                                                     </div>

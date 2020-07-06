@@ -11,7 +11,9 @@ import javax.persistence.Query;
 import java.util.List;
 
 public class ProductDAO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
+    EntityManagerFactory emf = new Manager().init();
+
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
     EntityManager em = emf.createEntityManager();
 
     public void insertProduct(Product product) {
