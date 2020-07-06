@@ -9,7 +9,8 @@ import javax.persistence.Persistence;
 import java.util.List;
 
 public class CategoryDAO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
+    EntityManagerFactory emf = new Manager().init();
+//    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
     EntityManager em = emf.createEntityManager();
 
     public void insertCategory(Category Category) {
