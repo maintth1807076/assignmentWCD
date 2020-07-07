@@ -1,6 +1,8 @@
 package com.heleyquin.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
 @Entity
@@ -11,15 +13,20 @@ public class Product {
     private Integer id;
 
     @Column(name = "name", unique = true)
+    @NotNull(message = "Vui lòng nhập tên Product")
     private String name;
 
     @Column(name = "price")
+    @NotNull(message = "Vui lòng nhập giá")
+    @Positive(message = "Price phải là số nguyên dương")
     private Double price;
 
     @Column(name = "thumbnail")
+    @NotNull(message = "Vui lòng chon anh")
     private String thumbnail;
 
     @Column(name = "description")
+    @NotNull(message = "Vui lòng nhập description")
     private String description;
 
     @Column(name= "status")

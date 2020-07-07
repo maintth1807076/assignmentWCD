@@ -7,7 +7,7 @@
                 <p class="card-category"></p>
             </div>
             <div class="card-body">
-                <form method="post" action="admin-addCategory">
+                <form id="addCategory" method="post" action="admin-addCategory">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -23,4 +23,16 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#addCategory").validate({
+            rules: {
+                name: "required",
+            },
+            messages: {
+                name: "Vui lòng nhập tên Category",
+            }
+        });
+    });
+</script>
 </body>

@@ -1,6 +1,7 @@
 package com.heleyquin.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -11,6 +12,7 @@ public class Category {
     private Integer id;
 
     @Column(name = "name")
+    @NotNull(message = "Vui lòng nhập tên Category")
     private String name;
 
     public Integer getId() {

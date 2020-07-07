@@ -8,7 +8,7 @@
                 <p class="card-category"></p>
             </div>
             <div class="card-body">
-                <form method="post" action="admin-addProduct">
+                <form id="addProduct" method="post" action="admin-addProduct">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -111,5 +111,23 @@
     document.getElementById("upload_widget").addEventListener("click", function(){
         myWidget.open();
     }, false);
+    $("#addProduct").validate({
+        rules: {
+            name: "required",
+            description: "required",
+            price: {
+                required: true,
+                digits: true
+            },
+        },
+        messages: {
+            name: "Vui lòng nhập tên Product",
+            description: "Vui lòng nhập description",
+            price: {
+                required: "Vui lòng nhập giá",
+                digits: "Price phải là số nguyên dương"
+            }
+        }
+    });
 </script>
 </body>
