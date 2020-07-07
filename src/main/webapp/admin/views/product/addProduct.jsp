@@ -1,4 +1,17 @@
+<%@ page import="com.heleyquin.model.Product" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    Product old = (Product) request.getAttribute("old");
+    if (old == null) {
+        old = new Product();
+    }
+    Map<String, String> errors = (Map<String, String>) request.getAttribute("errors");
+    if (errors == null) {
+        errors = new HashMap<>();
+    }
+%>
 <body>
 <div class="row">
     <div class="col-md-8 container">
@@ -17,7 +30,15 @@
                                         <label>Name</label>
                                     </div>
                                     <div class="col-md-11">
-                                        <input name="name" type="text" class="form-control"/>
+                                        <input name="name" type="text" class="form-control"
+                                               value="<%= old.getName() != null ? old.getName() : ""%>" required/>
+                                        <%
+                                            if (errors.get("name") != null) {
+                                        %>
+                                        <small class="form-text text-danger"><%= errors.get("name")%></small>
+                                        <%
+                                            }
+                                        %>
                                     </div>
                                 </div>
                             </div>
@@ -31,7 +52,15 @@
                                         <label>Description</label>
                                     </div>
                                     <div class="col-md-11">
-                                        <input name="description" type="text" class="form-control"/>
+                                        <input name="description" type="text" class="form-control"
+                                               value="<%= old.getDescription() != null ? old.getDescription() : ""%>" required/>
+                                        <%
+                                            if (errors.get("description") != null) {
+                                        %>
+                                        <small class="form-text text-danger"><%= errors.get("description")%></small>
+                                        <%
+                                            }
+                                        %>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +76,15 @@
                                                 <label>Price</label>
                                             </div>
                                             <div class="col-md-10">
-                                                <input name="price" step="0.1" type="number" class="form-control"/>
+                                                <input name="price" step="0.1" type="number" class="form-control"
+                                                       value="<%= old.getPrice() != null ? old.getPrice() : ""%>" required/>
+                                                <%
+                                                    if (errors.get("price") != null) {
+                                                %>
+                                                <small class="form-text text-danger"><%= errors.get("price")%></small>
+                                                <%
+                                                    }
+                                                %>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary pull-right">Add</button>
+                    <button id="add-product" type="submit" class="btn btn-primary pull-right">Add</button>
                     <div class="clearfix"></div>
                 </form>
             </div>
@@ -111,23 +148,25 @@
     document.getElementById("upload_widget").addEventListener("click", function(){
         myWidget.open();
     }, false);
-    $("#addProduct").validate({
-        rules: {
-            name: "required",
-            description: "required",
-            price: {
-                required: true,
-                digits: true
+    $('#add-product').click(function () {
+        $("#addProduct").validate({
+            rules: {
+                name: "required",
+                description: "required",
+                price: {
+                    required: true,
+                    digits: true
+                },
             },
-        },
-        messages: {
-            name: "Vui lòng nhập tên Product",
-            description: "Vui lòng nhập description",
-            price: {
-                required: "Vui lòng nhập giá",
-                digits: "Price phải là số nguyên dương"
+            messages: {
+                name: "Vui lòng nhập tên Product",
+                description: "Vui lòng nhập description",
+                price: {
+                    required: "Vui lòng nhập giá",
+                    digits: "Price phải là số nguyên dương"
+                }
             }
-        }
-    });
+        });
+    })
 </script>
 </body>

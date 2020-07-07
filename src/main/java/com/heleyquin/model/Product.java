@@ -1,9 +1,12 @@
 package com.heleyquin.model;
 
 import javax.persistence.*;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Table(name = "product")
@@ -13,20 +16,15 @@ public class Product {
     private Integer id;
 
     @Column(name = "name", unique = true)
-    @NotNull(message = "Vui lòng nhập tên Product")
     private String name;
 
     @Column(name = "price")
-    @NotNull(message = "Vui lòng nhập giá")
-    @Positive(message = "Price phải là số nguyên dương")
     private Double price;
 
     @Column(name = "thumbnail")
-    @NotNull(message = "Vui lòng chon anh")
     private String thumbnail;
 
     @Column(name = "description")
-    @NotNull(message = "Vui lòng nhập description")
     private String description;
 
     @Column(name= "status")
@@ -143,5 +141,25 @@ public class Product {
         this.thumbnail = thumbnail;
         this.description = description;
         this.categoryId = categoryId;
+    }
+
+    public Product(HttpServletRequest req) {
+        this.name = req.getParameter("name");
+        this.description = req.getParameter("description");
+         this.price = Double.valueOf(req.getParameter("price"));
+    }
+
+    public Map<String, String> validate() {
+        Map<String, String> result = new HashMap<String, String>();
+        if (this.name == null) {
+            result.put("name", "Vui lòng nhập tên Product");
+        }
+        if (this.description == null) {
+            result.put("description", "Vui lòng nhập description");
+        }
+        if (this.price == null || this.price < 0) {
+            result.put("price", "Price không được để trống và phải lớn hơn 0");
+        }
+        return result;
     }
 }

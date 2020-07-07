@@ -16,35 +16,37 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button id="ok" type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#login").validate({
-            rules: {
-                username: {
-                    required: true,
-                    minlength: 5,
-                    maxlength: 15
+        $('#ok').click(function () {
+            $("#login").validate({
+                rules: {
+                    username: {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 15
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
                 },
-                password: {
-                    required: true,
-                    minlength: 5
-                },
-            },
-            messages: {
-                username: {
-                    required: "Vui lòng nhập username",
-                    minlength: "Username không được quá ngắn (5-15 ký tự)",
-                    maxlength: "Username không được dài quá 15 ký tự"
-                },
-                password: {
-                    required: "Vui lòng nhập password",
-                    minlength: "Password không được quá ngắn "
+                messages: {
+                    username: {
+                        required: "Vui lòng nhập username",
+                        minlength: "Username không được quá ngắn (5-15 ký tự)",
+                        maxlength: "Username không được dài quá 15 ký tự"
+                    },
+                    password: {
+                        required: "Vui lòng nhập password",
+                        minlength: "Password không được quá ngắn "
+                    }
                 }
-            }
-        });
+            });
+        })
     });
 </script>
 </body>
