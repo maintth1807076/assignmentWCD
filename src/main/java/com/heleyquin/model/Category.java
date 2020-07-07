@@ -1,7 +1,11 @@
 package com.heleyquin.model;
 
 import javax.persistence.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.NotNull;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Table(name = "category")
@@ -52,5 +56,17 @@ public class Category {
 
     public List<Product> getProductList() {
         return productList;
+    }
+
+    public Category(HttpServletRequest req) {
+        this.name = req.getParameter("name");
+    }
+
+    public Map<String, String> validate() {
+        Map<String, String> result = new HashMap<String, String>();
+        if (this.name == null) {
+            result.put("name", "Vui lòng nhập tên Category");
+        }
+        return result;
     }
 }
