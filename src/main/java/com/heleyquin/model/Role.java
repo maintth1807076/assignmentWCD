@@ -18,9 +18,49 @@ public class Role {
             CascadeType.MERGE
     })
     private List<User> users;
+    private int Role;
 
     public Role(String name) {
         this.name = name;
+    }
+
+    public boolean isUser() {
+        return this.Role == role.USER.getValue();
+    }
+
+    public boolean isAdmin() {
+        return this.Role == role.ADMIN.getValue();
+    }
+
+    public boolean isMember() {
+        return (this.isUser() || this.isAdmin());
+    }
+
+    public enum role {
+        USER(1), ADMIN(2);
+
+        private int value;
+
+        role(int value) {
+            this.value = value;
+        }
+
+        public static role findByValue(int value) {
+            for (role r : role.values()) {
+                if (r.value == value) {
+                    return r;
+                }
+            }
+            return role.USER;
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+        public void setValue(int value) {
+            this.value = value;
+        }
     }
 
     public Integer getId() {
