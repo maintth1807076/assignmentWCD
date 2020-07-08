@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet(name = "AddCategoryServlet", urlPatterns = "/admin-addCategory")
+@WebServlet(name = "AddCategoryServlet", urlPatterns = "/admin/category/create")
 public class AddCategoryServlet extends HttpServlet {
     CategoryDAO categoryDAO = new CategoryDAO();
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -33,6 +33,6 @@ public class AddCategoryServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("admin/views/category/addCategory.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/views/category/addCategory.jsp").forward(request, response);
     }
 }

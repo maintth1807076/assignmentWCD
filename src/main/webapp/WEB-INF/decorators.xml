@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/decorators">
     <excludes>
-        <pattern>/outside/assets/images/*</pattern>
-        <pattern>/outside/assets/css/*</pattern>
-        <pattern>/outside/assets/js/*</pattern>
         <pattern>/login</pattern>
-        <pattern>/admin/views/login.jsp</pattern>
     </excludes>
     <decorator name="outside" page="layout.jsp">
         <pattern>/*</pattern>
     </decorator>
     <decorator name="admin" page="admin/layout-admin.jsp">
-        <pattern>/admin/*</pattern>
-        <pattern>/admin</pattern>
         <pattern>/admin*</pattern>
-        <pattern>/admin/views/category/list.jsp</pattern>
+        <pattern>/admin/*</pattern>
     </decorator>
 </decorators>

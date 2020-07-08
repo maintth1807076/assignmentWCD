@@ -31,7 +31,7 @@
                             <i class="fas fa-hamburger"></i>
                             <p>List</p>
                         </a>
-                        <a href="admin-addCategory" class="dropdown-item">
+                        <a href="admin/category/create" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>Create</p>
                         </a>
