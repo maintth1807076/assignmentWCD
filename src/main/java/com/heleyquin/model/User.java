@@ -34,6 +34,9 @@ public class User {
         }
     }
 
+    public User() {
+    }
+
     public User(String username, String password, StatusType status) {
         this.username = username;
         this.password = password;
@@ -85,5 +88,24 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean isAdmin() {
+        for (int i = 0; i < this.roles.size(); i++) {
+            Role role = this.roles.get(i);
+            if(role.getName().equals("admin")){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isUser() {
+        for (int i = 0; i < this.roles.size(); i++) {
+            Role role = this.roles.get(i);
+            if(role.getName().equals("user")){
+                return true;
+            }
+        }
+        return false;
     }
 }
