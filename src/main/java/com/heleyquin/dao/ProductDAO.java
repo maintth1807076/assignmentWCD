@@ -1,5 +1,6 @@
 package com.heleyquin.dao;
 
+import com.heleyquin.model.Category;
 import com.heleyquin.model.Product;
 import com.heleyquin.model.ProductSize;
 import com.heleyquin.model.Size;
@@ -49,6 +50,14 @@ public class ProductDAO {
         query.setFirstResult((pageNumber-1) * pageSize);
         query.setMaxResults(pageSize);
         List<Product> list = query.getResultList();
+        em.getTransaction().commit();
+        em.close();
+        return list;
+    }
+    public List<Product> getAllProduct1() {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<Product> list = em.createQuery("select c from Product c", Product.class).getResultList();
         em.getTransaction().commit();
         em.close();
         return list;

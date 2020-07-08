@@ -1,6 +1,7 @@
 package com.heleyquin.controller.outside;
 
 import com.heleyquin.dao.CategoryDAO;
+import com.heleyquin.dao.ProductDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "HomeServlet", urlPatterns = "/home")
 public class HomeServlet extends HttpServlet {
     private CategoryDAO categoryDAO = new CategoryDAO();
+    private ProductDAO productDAO = new ProductDAO();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
