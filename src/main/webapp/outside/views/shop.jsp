@@ -1,5 +1,45 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
+<style>
+    .pagination {
+        border-radius: 0;
+        clear: both;
+        display: block;
+        margin-bottom: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .pagination ul {
+        display: inline-block;
+        list-style: outside none none;
+        margin: 0;
+    }
+    .pagination ul li {
+        display: block;
+        float: left;
+        margin: 0 5px;
+    }
+    .pagination ul li a, .pagination ul li span {
+        border: 1px solid #c49b63;
+        background: transparent none repeat scroll 0 0;
+        color: #c49b63;
+        display: block;
+        font-weight: 600;
+        height: 30px;
+        line-height: 30px;
+        width: 30px;
+    }
+    .pagination ul li a i {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .pagination ul li span{}
+    .pagination ul li.active{}
+    .pagination ul li.active span, .pagination ul li a:hover {
+        background: #c49b63 none repeat scroll 0 0;
+        color: #fff;
+    }
+</style>
 <section class="home-slider owl-carousel">
 
     <div class="slider-item" style="background-image: url(outside/assets/images/bg_3.jpg);"
@@ -17,7 +57,45 @@
         </div>
     </div>
 </section>
-
+<div class="ftco-section">
+    <div class="row">
+        <c:forEach var="product" items="${requestScope.products}" begin="${requestScope.start}" end="${requestScope.end}">
+            <div class="col-md-3">
+                <div class="menu-entry">
+                    <a href="product-single?id=${product.id}" class="img"
+                       style="background-image: url(${product.thumbnail});"></a>
+                    <div class="text text-center pt-4">
+                        <h3><a href="product-single?id=${product.id}">${product.name}</a></h3>
+                        <p>${product.description}</p>
+                        <p class="price"><span>$${product.price}</span></p>
+                        <p><a href="add-cart?id=${product.id}&quantity=1" class="btn btn-primary btn-outline-primary">Add
+                            to Cart</a></p>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+    <div class="pagination">
+        <ul>
+            <c:if test="${requestScope.currentPage != 1}">
+                <li><a href="shop?page=${requestScope.currentPage - 1}&categoryId=${requestScope.categoryId}"><i class="fa fa-angle-left"></i></a></li>
+            </c:if>
+            <c:forEach begin="1" end="${requestScope.noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${requestScope.currentPage == i}">
+                        <li class="active"><span>${i}</span></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="shop?page=${i}&categoryId=${requestScope.categoryId}">${i}</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <c:if test="${requestScope.currentPage < requestScope.noOfPages}">
+                <li><a href="shop?page=${requestScope.currentPage + 1}&categoryId=${requestScope.categoryId}"><i class="fa fa-angle-right"></i></a></li>
+            </c:if>
+        </ul>
+    </div>
+</div>
 <!--================Category Product Area =================-->
 <section class="cat_product_area section_padding">
     <div class="container">

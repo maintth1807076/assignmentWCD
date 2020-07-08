@@ -6,14 +6,6 @@
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
-<!--    <servlet>-->
-<!--        <servlet-name>AddCategoryServlet</servlet-name>-->
-<!--        <servlet-class>com.heleyquin.controller.admin.category.AddCategoryServlet</servlet-class>-->
-<!--    </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>AddCategoryServlet</servlet-name>-->
-<!--        <url-pattern>/admin/category/create</url-pattern>-->
-<!--    </servlet-mapping>-->
     <filter>
         <filter-name>sitemesh</filter-name>
         <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>

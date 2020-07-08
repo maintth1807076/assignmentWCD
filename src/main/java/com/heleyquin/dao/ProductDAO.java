@@ -9,6 +9,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO {
@@ -61,6 +66,33 @@ public class ProductDAO {
         em.getTransaction().commit();
         em.close();
         return list;
+    }
+
+    public List<Product> getAllProductWithCriteria(int categoryId, int minPrice, int maxPrice, int status) {
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(Product.class);
+        Root<Product> productRoot = criteriaQuery.from(Product.class);
+        Predicate predicate;
+        List<Predicate> pr = new ArrayList<Predicate>();
+        if(categoryId != 0){
+            predicate
+                    = criteriaBuilder.lt(productRoot.get("price").as(Double.class), maxPrice);
+            Predicate predicate1 = criteriaBuilder.gt(productRoot.get("price").as(Double.class), minPrice);
+            pr.add(predicate);
+            pr.add(predicate1);
+        }
+        if(categoryId != 0){
+            predicate
+                    = criteriaBuilder.equal(productRoot.get("categoryId").as(Integer.class), categoryId);
+            pr.add(predicate);
+        }
+        Predicate predicate2
+                = criteriaBuilder.equal(productRoot.get("status").as(Integer.class), status);
+        pr.add(predicate2);
+        predicate = criteriaBuilder.and(pr.toArray(new Predicate[]{}));
+        criteriaQuery.where(predicate);
+        List<Product> items = em.createQuery(criteriaQuery).getResultList();
+        return items;
     }
     public int getCountProduct() {
         em = emf.createEntityManager();
