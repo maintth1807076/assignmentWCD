@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <body>
 <section class="home-slider owl-carousel">
 
@@ -30,56 +32,43 @@
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Total</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
+                        <c:forEach var="cartItem" items="${requestScope.cart.values()}">
+                            <tr class="text-center">
+                                <form id="remove-${cartItem.id}" action="remove-cart" method="post">
+                                    <input name="id" type="hidden" value="${cartItem.id}">
+                                </form>
+                                <td class="product-remove"><a href="javascript:document.getElementById('remove-${cartItem.id}').submit()"><span class="icon-close"></span></a></td>
 
-                            <td class="image-prod">
-                                <div class="img" style="background-image:url(images/menu-2.jpg);"></div>
-                            </td>
+                                <td class="image-prod">
+                                    <div class="img" style="background-image:url(${cartItem.thumbnail});"></div>
+                                </td>
 
-                            <td class="product-name">
-                                <h3>Creamy Latte Coffee</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
+                                <td class="product-name">
+                                    <h3>${cartItem.name}</h3>
+                                    <p>Far far away, behind the word mountains, far from the countries</p>
+                                </td>
 
-                            <td class="price">$4.90</td>
+                                <td class="price">$${cartItem.unitPrice}</td>
 
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number"
-                                           value="1" min="1" max="100">
-                                </div>
-                            </td>
+                                <td class="quantity">
+                                    <div class="input-group mb-3">
+                                        <form id="update-${cartItem.id}" action="update-cart" method="post">
+                                            <input name="quantity" type="text" name="quantity" class="quantity form-control input-number"
+                                                   value="${cartItem.quantity}" min="1" max="100">
+                                            <input type="hidden" name="id" value="${cartItem.id}">
+                                        </form>
 
-                            <td class="total">$4.90</td>
-                        </tr><!-- END TR-->
+                                    </div>
+                                </td>
 
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-
-                            <td class="image-prod">
-                                <div class="img" style="background-image:url(images/dish-2.jpg);"></div>
-                            </td>
-
-                            <td class="product-name">
-                                <h3>Grilled Ribs Beef</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-
-                            <td class="price">$15.70</td>
-
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number"
-                                           value="1" min="1" max="100">
-                                </div>
-                            </td>
-
-                            <td class="total">$15.70</td>
-                        </tr><!-- END TR-->
+                                <td class="total">$${cartItem.quantity * cartItem.unitPrice}</td>
+                                <td><a href="javascript:document.getElementById('update-${cartItem.id}').submit()">Update</a></td>
+                            </tr><!-- END TR-->
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -89,22 +78,24 @@
             <div class="col col-lg-3 col-md-6 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
                     <h3>Cart Totals</h3>
-                    <p class="d-flex">
-                        <span>Subtotal</span>
-                        <span>$20.60</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Delivery</span>
-                        <span>$0.00</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Discount</span>
-                        <span>$3.00</span>
-                    </p>
+<%--                    <p class="d-flex">--%>
+<%--                        <span>Subtotal</span>--%>
+<%--                        <span>$20.60</span>--%>
+<%--                    </p>--%>
+<%--                    <p class="d-flex">--%>
+<%--                        <span>Delivery</span>--%>
+<%--                        <span>$0.00</span>--%>
+<%--                    </p>--%>
+<%--                    <p class="d-flex">--%>
+<%--                        <span>Discount</span>--%>
+<%--                        <span>$3.00</span>--%>
+<%--                    </p>--%>
                     <hr>
                     <p class="d-flex total-price">
                         <span>Total</span>
-                        <span>$17.60</span>
+                        <span>$
+                            <fmt:formatNumber type="number" maxFractionDigits="2" value="${requestScope.totalPrice}" />
+                        </span>
                     </p>
                 </div>
                 <p class="text-center"><a href="checkout" class="btn btn-primary py-3 px-4">Proceed to Checkout</a>
