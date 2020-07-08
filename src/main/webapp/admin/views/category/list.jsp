@@ -29,7 +29,8 @@
                                 </td>
                                 <td>${category.name}</td>
                                 <td class="td-actions text-right">
-                                    <a href="admin-editCategory?id=${category.id}" class="material-icons">edit</a>
+                                    <c:url var="editUrl" value='/admin/category/edit?id=${category.id}'/>
+                                    <a href="${editUrl}" class="material-icons">edit</a>
                                     <button type="submit" rel="tooltip" title="Remove"
                                             class="btn btn-danger btn-link btn-sm">
                                         <i class="material-icons">close</i>

@@ -27,11 +27,11 @@
                         <p>Category</p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTableList">
-                        <a href="admin-listCategory" class="dropdown-item">
+                        <a href="/admin/category/list" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>List</p>
                         </a>
-                        <a href="admin/category/create" class="dropdown-item">
+                        <a href="/admin/category/create" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>Create</p>
                         </a>
