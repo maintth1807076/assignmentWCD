@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ListCategoryServlet", urlPatterns = "/admin-listCategory")
+@WebServlet(name = "ListCategoryServlet", urlPatterns = "/admin/category/list")
 public class ListCategoryServlet extends HttpServlet {
     CategoryDAO categoryDAO = new CategoryDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,6 +18,6 @@ public class ListCategoryServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("categories", categoryDAO.getAllCategory());
-        request.getRequestDispatcher("admin/views/category/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/views/category/list.jsp").forward(request, response);
     }
 }
