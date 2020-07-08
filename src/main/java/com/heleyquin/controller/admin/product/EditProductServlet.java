@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditProductServlet", urlPatterns = "/admin-editProduct")
+@WebServlet(name = "EditProductServlet", urlPatterns = "/admin/product/edit")
 public class EditProductServlet extends HttpServlet {
     ProductDAO productDAO = new ProductDAO();
     CategoryDAO categoryDAO = new CategoryDAO();
@@ -36,6 +36,6 @@ public class EditProductServlet extends HttpServlet {
         }
         Product product = productDAO.getProduct(Integer.parseInt(id));
         request.setAttribute("product", product);
-        request.getRequestDispatcher("admin/views/product/edit.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/views/product/edit.jsp").forward(request, response);
     }
 }
