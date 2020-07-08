@@ -11,21 +11,19 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 
-@WebServlet(name = "CartServlet", urlPatterns = "/cart")
-public class CartServlet extends HttpServlet {
+@WebServlet(name = "RemoveCartServlet", urlPatterns = "/remove-cart")
+public class RemoveCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        int id = Integer.parseInt(request.getParameter("id"));
+        HttpSession session = request.getSession();
+        HashMap<Integer, CartItem> cart = (HashMap<Integer, CartItem>) session.getAttribute("cart");
+        if(cart.containsKey(id)) {
+            cart.remove(id);
+        }
+        response.sendRedirect("/cart");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        HashMap<Integer, CartItem> cart = (HashMap<Integer, CartItem>) session.getAttribute("cart");
-        request.setAttribute("cart", cart);
-        Double totalPrice = 0.0;
-        for (CartItem cartItem: cart.values()) {
-            totalPrice += cartItem.getQuantity() * cartItem.getUnitPrice();
-        }
-        request.setAttribute("totalPrice", totalPrice);
-        request.getRequestDispatcher("outside/views/cart.jsp").forward(request, response);
+
     }
 }

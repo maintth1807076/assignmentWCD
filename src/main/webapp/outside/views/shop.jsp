@@ -48,7 +48,7 @@
                                                         <h3><a href="product-single?id=${product.id}">${product.name}</a></h3>
                                                         <p>${product.description}</p>
                                                         <p class="price"><span>$${product.price}</span></p>
-                                                        <p><a href="cart" class="btn btn-primary btn-outline-primary">Add
+                                                        <p><a href="add-cart?id=${product.id}&quantity=1" class="btn btn-primary btn-outline-primary">Add
                                                             to Cart</a></p>
                                                     </div>
                                                 </div>
