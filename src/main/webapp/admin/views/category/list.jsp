@@ -12,6 +12,7 @@
                         <thead class="">
                         <th/>
                         <th>Name</th>
+                        <th>Action</th>
                         <th/>
                         </thead>
                         <tbody>

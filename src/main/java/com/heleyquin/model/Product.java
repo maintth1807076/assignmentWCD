@@ -1,13 +1,10 @@
 package com.heleyquin.model;
 
 import javax.persistence.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 @Table(name = "product")
@@ -34,16 +31,53 @@ public class Product {
     @Column(name = "categoryId")
     private Integer categoryId;
 
+    @Column(name = "createAt")
+    private Timestamp createAt;
+
+    @Column(name = "updateAt")
+    private Timestamp updateAt;
+
     @ManyToOne()
     @JoinColumn(name = "categoryId", updatable = false, insertable = false)
     private Category category;
 
     @OneToMany(mappedBy = "product")
     private List<ProductSize> productSizeList;
-    @Column(name = "strPrice")
+
     private String strPrice;
 
+    private String strCategoryId;
+
+    public String getStrCategoryId() {
+        return strCategoryId;
+    }
+
+    public Timestamp getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Timestamp createAt) {
+        this.createAt = createAt;
+    }
+
+    public Timestamp getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Timestamp updateAt) {
+        this.updateAt = updateAt;
+    }
+
+    public void setStrCategoryId(String strCategoryId) {
+        this.strCategoryId = strCategoryId;
+    }
+
     public Product(String name, String price, String thumbnail, String description, String categoryId) {
+        this.name = name;
+        this.strPrice = price;
+        this.thumbnail = thumbnail;
+        this.description = description;
+        this.strCategoryId = categoryId;
     }
 
     public Integer getStatus() {
@@ -185,16 +219,16 @@ public class Product {
             priceErrors.add("Price is required!");
             errors.put("price", priceErrors);
         }
-//        try {
-//            price = Double.parseDouble(strPrice);
-//        } catch (NumberFormatException ex) {
-//            ArrayList<String> priceErrors = new ArrayList<>();
-//            if (errors.containsKey("price")) {
-//                priceErrors = errors.get("price");
-//            }
-//            priceErrors.add("Price must be a number!");
-//            errors.put("price", priceErrors);
-//        }
+        try {
+            price = Double.parseDouble(strPrice);
+        } catch (NumberFormatException ex) {
+            ArrayList<String> priceErrors = new ArrayList<>();
+            if (errors.containsKey("price")) {
+                priceErrors = errors.get("price");
+            }
+            priceErrors.add("Price must be a number!");
+            errors.put("price", priceErrors);
+        }
         if (thumbnail == null || thumbnail.isEmpty()) {
             ArrayList<String> thumbnailErrors = new ArrayList<>();
             if (errors.containsKey("thumbnail")) {
@@ -208,7 +242,7 @@ public class Product {
             if (errors.containsKey("description")) {
                 descriptionErrors = errors.get("description");
             }
-            descriptionErrors.add("Description is required!");
+            descriptionErrors.add("Thumbnail is required!");
             errors.put("description", descriptionErrors);
         }
         return errors;

@@ -1,8 +1,13 @@
 package com.heleyquin.model;
 
 import javax.persistence.*;
+import javax.print.attribute.standard.DateTimeAtCompleted;
+import javax.print.attribute.standard.DateTimeAtCreation;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +22,28 @@ public class Category {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "createAt")
+    private Timestamp createAt;
+
+    @Column(name = "updateAt")
+    private Timestamp updateAt;
+
+    public Timestamp getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Timestamp createAt) {
+        this.createAt = createAt;
+    }
+
+    public Timestamp getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Timestamp updateAt) {
+        this.updateAt = updateAt;
+    }
 
     public Integer getId() {
         return id;

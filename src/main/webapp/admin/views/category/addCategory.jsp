@@ -48,7 +48,7 @@
                     name: "required",
                 },
                 messages: {
-                    name: "Vui lòng nhập tên Category",
+                    name: "Please enter name Category",
                 }
             });
         })

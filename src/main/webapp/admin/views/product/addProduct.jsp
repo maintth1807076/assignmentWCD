@@ -30,9 +30,10 @@
                                     <div class="col-md-11">
                                         <input name="name" type="text" class="form-control"/>
                                         <%
-                                            if(errors!=null && errors.containsKey("name")){
+                                            if (errors != null && errors.containsKey("name")) {
                                         %>
-                                        <p class="error">* <%=errors.get("name").get(0)%></p>
+                                        <p class="error">* <%=errors.get("name").get(0)%>
+                                        </p>
                                         <%
                                             }
                                         %>
@@ -51,9 +52,10 @@
                                     <div class="col-md-11">
                                         <input name="description" type="text" class="form-control"/>
                                         <%
-                                            if(errors!=null && errors.containsKey("description")){
+                                            if (errors != null && errors.containsKey("description")) {
                                         %>
-                                        <p class="error">* <%=errors.get("description").get(0)%></p>
+                                        <p class="error">* <%=errors.get("description").get(0)%>
+                                        </p>
                                         <%
                                             }
                                         %>
@@ -74,9 +76,10 @@
                                             <div class="col-md-10">
                                                 <input name="price" step="0.1" type="number" class="form-control"/>
                                                 <%
-                                                    if(errors!=null && errors.containsKey("price")){
+                                                    if (errors != null && errors.containsKey("price")) {
                                                 %>
-                                                <p class="error">* <%=errors.get("price").get(0)%></p>
+                                                <p class="error">* <%=errors.get("price").get(0)%>
+                                                </p>
                                                 <%
                                                     }
                                                 %>
@@ -89,24 +92,27 @@
                                         <img width="80px" id="thumbnail-preview">
                                     </div>
                                     <div>
-                                        <button type="button" id="upload_widget" class="btn btn-primary">Upload thumbnail</button>
+                                        <button type="button" id="upload_widget" class="btn btn-primary">Upload
+                                            thumbnail
+                                        </button>
                                         <%
-                                            if(errors!=null && errors.containsKey("thumbnail")){
+                                            if (errors != null && errors.containsKey("thumbnail")) {
                                         %>
-                                        <p class="error">* <%=errors.get("thumbnail").get(0)%></p>
+                                        <p class="error">* <%=errors.get("thumbnail").get(0)%>
+                                        </p>
                                         <%
                                             }
                                         %>
                                     </div>
                                     <input name="thumbnail" type="hidden">
-<%--                                    <div class="row">--%>
-<%--                                        <div class="col-md-10">--%>
-<%--                                            --%>
-<%--                                        </div>--%>
-<%--                                        <div class="col-md-2">--%>
-<%--                                            --%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
+                                    <%--                                    <div class="row">--%>
+                                    <%--                                        <div class="col-md-10">--%>
+                                    <%--                                            --%>
+                                    <%--                                        </div>--%>
+                                    <%--                                        <div class="col-md-2">--%>
+                                    <%--                                            --%>
+                                    <%--                                        </div>--%>
+                                    <%--                                    </div>--%>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +145,8 @@
 <script type="text/javascript">
     var myWidget = cloudinary.createUploadWidget({
             cloudName: 'kuramakyubi',
-            uploadPreset: 'vzg8snty'}, (error, result) => {
+            uploadPreset: 'vzg8snty'
+        }, (error, result) => {
             if (!error && result && result.event === "success") {
                 var url = "https://res.cloudinary.com/kuramakyubi/image/upload/c_fill,h_500,w_500/v1593177061/" + result.info.public_id + "." + result.info.format;
                 $("#thumbnail-preview").attr("src", url);
@@ -147,24 +154,26 @@
             }
         }
     )
-    document.getElementById("upload_widget").addEventListener("click", function(){
+    document.getElementById("upload_widget").addEventListener("click", function () {
         myWidget.open();
     }, false);
-        $("#addProduct").validate({
-            rules: {
-                name: "required",
-                description: "required",
-                price: {
-                    required: true
-                },
+    $("#addProduct").validate({
+        rules: {
+            name: "required",
+            description: "required",
+            price: {
+                required: true
             },
-            messages: {
-                name: "Vui lòng nhập tên Product",
-                description: "Vui lòng nhập description",
-                price: {
-                    required: "Vui lòng nhập giá",
-                }
-            }
-        });
+            thumbnail: "required",
+        },
+        messages: {
+            name: "Please enter name Product",
+            description: "Please enter description",
+            price: {
+                required: "Please enter price",
+            },
+            thumbnail: "Please enter thumbnail",
+        }
+    });
 </script>
 </body>
