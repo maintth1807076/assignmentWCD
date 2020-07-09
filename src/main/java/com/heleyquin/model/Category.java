@@ -3,6 +3,7 @@ package com.heleyquin.model;
 import javax.persistence.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,15 +59,16 @@ public class Category {
         return productList;
     }
 
-    public Category(HttpServletRequest req) {
-        this.name = req.getParameter("name");
-    }
-
-    public Map<String, String> validate() {
-        Map<String, String> result = new HashMap<String, String>();
-        if (this.name == null) {
-            result.put("name", "Vui lòng nhập tên Category");
+    public HashMap<String, ArrayList<String>> getErrors() {
+        HashMap<String, ArrayList<String>> errors = new HashMap<>();
+        if (name == null || name.isEmpty()) {
+            ArrayList<String> nameErrors = new ArrayList<>();
+            if (errors.containsKey("name")) {
+                nameErrors = errors.get("name");
+            }
+            nameErrors.add("Category name is required!");
+            errors.put("name", nameErrors);
         }
-        return result;
+        return errors;
     }
 }

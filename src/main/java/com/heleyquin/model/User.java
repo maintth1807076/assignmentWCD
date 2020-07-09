@@ -1,6 +1,8 @@
 package com.heleyquin.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Entity
@@ -36,6 +38,12 @@ public class User {
 
     public User() {
     }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
 
     public User(String username, String password, StatusType status) {
         this.username = username;
@@ -107,5 +115,40 @@ public class User {
             }
         }
         return false;
+    }
+
+    public HashMap<String, ArrayList<String>> getErrors() {
+        HashMap<String, ArrayList<String>> errors = new HashMap<>();
+        if (username == null || username.isEmpty()) {
+            ArrayList<String> nameErrors = new ArrayList<>();
+            if (errors.containsKey("username")) {
+                nameErrors = errors.get("username");
+            }
+            nameErrors.add("Username is required!");
+            errors.put("username", nameErrors);
+        } else if (username.length() < 5 || username.length() > 20) {
+            ArrayList<String> nameErrors = new ArrayList<>();
+            if (errors.containsKey("username")) {
+                nameErrors = errors.get("username");
+            }
+            nameErrors.add("Username must be 5 to 20 character!");
+            errors.put("username", nameErrors);
+        }
+        if (password == null || password.isEmpty()) {
+            ArrayList<String> passwordErrors = new ArrayList<>();
+            if (errors.containsKey("password")) {
+                passwordErrors = errors.get("password");
+            }
+            passwordErrors.add("Password is required!");
+            errors.put("password", passwordErrors);
+        }else if (password.length() < 5){
+            ArrayList<String> passwordErrors = new ArrayList<>();
+            if (errors.containsKey("password")) {
+                passwordErrors = errors.get("password");
+            }
+            passwordErrors.add("Password must be more than 5 characters");
+            errors.put("password", passwordErrors);
+        }
+        return errors;
     }
 }

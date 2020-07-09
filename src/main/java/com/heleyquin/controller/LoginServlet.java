@@ -19,25 +19,30 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if(userDAO.checkExistUser(username, password)) {
-            User user = userDAO.getUser(username, password);
-            if(user.isAdmin()) {
-                HttpSession session = request.getSession();
-                session.setAttribute("user", user);
-                response.sendRedirect("admin");
-                return;
-            }
-            if(user.isUser()) {
-                HttpSession session = request.getSession();
-                session.setAttribute("user", user);
-                response.sendRedirect("home");
-                return;
-            }
+        User user2 = new User(username, password);
+        if (user2.getErrors().size() > 0) {
+            request.setAttribute("errors", user2.getErrors());
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else {
-            doGet(request, response);
-            return;
+            if(userDAO.checkExistUser(username, password)) {
+                User user = userDAO.getUser(username, password);
+                if(user.isAdmin()) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", user);
+                    response.sendRedirect("admin");
+                    return;
+                }
+                if(user.isUser()) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", user);
+                    response.sendRedirect("home");
+                    return;
+                }
+            } else {
+                doGet(request, response);
+                return;
+            }
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
