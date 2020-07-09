@@ -143,11 +143,6 @@ public class Product {
         this.categoryId = categoryId;
     }
 
-    public Product(HttpServletRequest req) {
-        this.name = req.getParameter("name");
-        this.description = req.getParameter("description");
-         this.price = Double.valueOf(req.getParameter("price"));
-    }
 
     public Map<String, String> validate() {
         Map<String, String> result = new HashMap<String, String>();
