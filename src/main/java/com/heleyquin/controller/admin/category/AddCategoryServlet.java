@@ -21,10 +21,10 @@ public class AddCategoryServlet extends HttpServlet {
         Category category = new Category(name);
         if (category.getErrors().size() > 0) {
             req.setAttribute("errors", category.getErrors());
-            req.getRequestDispatcher("/addCategory.jsp").forward(req, res);
+            req.getRequestDispatcher("/admin/views/category/addCategory.jsp").forward(req, res);
         } else {
             categoryDAO.insertCategory(category);
-            res.sendRedirect("admin-listCategory");
+            res.sendRedirect("/admin/category/list");
         }
     }
 

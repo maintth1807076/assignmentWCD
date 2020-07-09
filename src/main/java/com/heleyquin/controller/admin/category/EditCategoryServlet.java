@@ -21,7 +21,7 @@ public class EditCategoryServlet extends HttpServlet {
         category.setId(Integer.parseInt(id));
         category.setName(name);
         categoryDAO.updateCategory(category);
-        response.sendRedirect("admin-listCategory");
+        response.sendRedirect("admin/category/list");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

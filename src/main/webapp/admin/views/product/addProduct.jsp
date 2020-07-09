@@ -19,7 +19,7 @@
                 <p class="card-category"></p>
             </div>
             <div class="card-body">
-                <form id="addProduct" method="post" action="admin-addProduct">
+                <form id="addProduct" method="post" action="/admin/product/create">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -155,8 +155,7 @@
                 name: "required",
                 description: "required",
                 price: {
-                    required: true,
-                    digits: true
+                    required: true
                 },
             },
             messages: {
@@ -164,7 +163,6 @@
                 description: "Vui lòng nhập description",
                 price: {
                     required: "Vui lòng nhập giá",
-                    digits: "Price phải là số nguyên dương"
                 }
             }
         });

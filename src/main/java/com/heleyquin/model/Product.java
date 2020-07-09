@@ -40,7 +40,7 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private List<ProductSize> productSizeList;
-
+    @Column(name = "strPrice")
     private String strPrice;
 
     public Product(String name, String price, String thumbnail, String description, String categoryId) {
@@ -185,16 +185,16 @@ public class Product {
             priceErrors.add("Price is required!");
             errors.put("price", priceErrors);
         }
-        try {
-            price = Double.parseDouble(strPrice);
-        } catch (NumberFormatException ex) {
-            ArrayList<String> priceErrors = new ArrayList<>();
-            if (errors.containsKey("price")) {
-                priceErrors = errors.get("price");
-            }
-            priceErrors.add("Price must be a number!");
-            errors.put("price", priceErrors);
-        }
+//        try {
+//            price = Double.parseDouble(strPrice);
+//        } catch (NumberFormatException ex) {
+//            ArrayList<String> priceErrors = new ArrayList<>();
+//            if (errors.containsKey("price")) {
+//                priceErrors = errors.get("price");
+//            }
+//            priceErrors.add("Price must be a number!");
+//            errors.put("price", priceErrors);
+//        }
         if (thumbnail == null || thumbnail.isEmpty()) {
             ArrayList<String> thumbnailErrors = new ArrayList<>();
             if (errors.containsKey("thumbnail")) {
@@ -208,7 +208,7 @@ public class Product {
             if (errors.containsKey("description")) {
                 descriptionErrors = errors.get("description");
             }
-            descriptionErrors.add("Thumbnail is required!");
+            descriptionErrors.add("Description is required!");
             errors.put("description", descriptionErrors);
         }
         return errors;

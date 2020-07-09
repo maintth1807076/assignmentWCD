@@ -8,7 +8,7 @@
                 <p class="card-category"></p>
             </div>
             <div class="card-body">
-                <form method="post" action="admin-editProduct">
+                <form method="post" action="/admin/product/edit">
                     <input type="hidden" name="id" value="${requestScope.product.id}">
                     <div class="row">
                         <div class="col-md-12">

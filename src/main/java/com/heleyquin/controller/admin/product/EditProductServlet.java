@@ -25,7 +25,7 @@ public class EditProductServlet extends HttpServlet {
         Product product = new Product(name, Double.parseDouble(price), thumbnail, description, Integer.parseInt(categoryId));
         product.setId(Integer.parseInt(id));
         productDAO.updateProduct(product);
-        response.sendRedirect("admin-listProduct");
+        response.sendRedirect("admin/product/list");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

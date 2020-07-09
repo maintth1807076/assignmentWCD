@@ -51,7 +51,7 @@
                             <i class="fas fa-hamburger"></i>
                             <p>List</p>
                         </a>
-                        <a href="/admin/product/add" class="dropdown-item">
+                        <a href="/admin/product/create" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>Create</p>
                         </a>
