@@ -4,6 +4,7 @@ import com.heleyquin.dao.CategoryDAO;
 import com.heleyquin.dao.ProductDAO;
 import com.heleyquin.model.Category;
 import com.heleyquin.model.Product;
+import com.heleyquin.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,23 +20,22 @@ public class AddProductServlet extends HttpServlet {
     CategoryDAO categoryDAO = new CategoryDAO();
     ProductDAO productDAO = new ProductDAO();
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        Product product = new Product(req);
-        Map<String, String> validator = product.validate();
-        if (validator.keySet().size() > 0) {
-            req.setAttribute("old", product);
-            req.setAttribute("errors", validator);
-            doGet(req, res);
-            return;
-        }
         String name = req.getParameter("name");
         String price = req.getParameter("price");
         String thumbnail = req.getParameter("thumbnail");
         String description = req.getParameter("description");
         String categoryId = req.getParameter("categoryId");
-        Product p = new Product(name, Double.parseDouble(price), thumbnail, description, Integer.parseInt(categoryId));
-        product.setStatus(1);
-        productDAO.insertProduct(p);
-        res.sendRedirect("admin-listProduct");
+        Product product = new Product(name, price, thumbnail, description, categoryId);
+
+        if (product.getErrors().size() > 0) {
+            req.setAttribute("errors", product.getErrors());
+            req.getRequestDispatcher("/addProduct.jsp").forward(req, res);
+        } else {
+            Product p = new Product(name, Double.parseDouble(price), thumbnail, description, Integer.parseInt(categoryId));
+            product.setStatus(1);
+            productDAO.insertProduct(p);
+            res.sendRedirect("admin-listProduct");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

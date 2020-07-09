@@ -1,17 +1,15 @@
 <%@ page import="com.heleyquin.model.Product" %>
-<%@ page import="java.util.Map" %>
 <%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-    Product old = (Product) request.getAttribute("old");
-    if (old == null) {
-        old = new Product();
-    }
-    Map<String, String> errors = (Map<String, String>) request.getAttribute("errors");
-    if (errors == null) {
-        errors = new HashMap<>();
-    }
+    HashMap<String, ArrayList<String>> errors = (HashMap<String, ArrayList<String>>) request.getAttribute("errors");
 %>
+<style>
+    .error {
+        color: red;
+    }
+</style>
 <body>
 <div class="row">
     <div class="col-md-8 container">
@@ -30,12 +28,11 @@
                                         <label>Name</label>
                                     </div>
                                     <div class="col-md-11">
-                                        <input name="name" type="text" class="form-control"
-                                               value="<%= old.getName() != null ? old.getName() : ""%>" required/>
+                                        <input name="name" type="text" class="form-control"/>
                                         <%
-                                            if (errors.get("name") != null) {
+                                            if(errors!=null && errors.containsKey("name")){
                                         %>
-                                        <small class="form-text text-danger"><%= errors.get("name")%></small>
+                                        <p class="error">* <%=errors.get("name").get(0)%></p>
                                         <%
                                             }
                                         %>
@@ -52,12 +49,11 @@
                                         <label>Description</label>
                                     </div>
                                     <div class="col-md-11">
-                                        <input name="description" type="text" class="form-control"
-                                               value="<%= old.getDescription() != null ? old.getDescription() : ""%>" required/>
+                                        <input name="description" type="text" class="form-control"/>
                                         <%
-                                            if (errors.get("description") != null) {
+                                            if(errors!=null && errors.containsKey("description")){
                                         %>
-                                        <small class="form-text text-danger"><%= errors.get("description")%></small>
+                                        <p class="error">* <%=errors.get("description").get(0)%></p>
                                         <%
                                             }
                                         %>
@@ -76,12 +72,11 @@
                                                 <label>Price</label>
                                             </div>
                                             <div class="col-md-10">
-                                                <input name="price" step="0.1" type="number" class="form-control"
-                                                       value="<%= old.getPrice() != null ? old.getPrice() : ""%>" required/>
+                                                <input name="price" step="0.1" type="number" class="form-control"/>
                                                 <%
-                                                    if (errors.get("price") != null) {
+                                                    if(errors!=null && errors.containsKey("price")){
                                                 %>
-                                                <small class="form-text text-danger"><%= errors.get("price")%></small>
+                                                <p class="error">* <%=errors.get("price").get(0)%></p>
                                                 <%
                                                     }
                                                 %>
@@ -95,6 +90,13 @@
                                     </div>
                                     <div>
                                         <button type="button" id="upload_widget" class="btn btn-primary">Upload thumbnail</button>
+                                        <%
+                                            if(errors!=null && errors.containsKey("thumbnail")){
+                                        %>
+                                        <p class="error">* <%=errors.get("thumbnail").get(0)%></p>
+                                        <%
+                                            }
+                                        %>
                                     </div>
                                     <input name="thumbnail" type="hidden">
 <%--                                    <div class="row">--%>
@@ -148,7 +150,6 @@
     document.getElementById("upload_widget").addEventListener("click", function(){
         myWidget.open();
     }, false);
-    $('#add-product').click(function () {
         $("#addProduct").validate({
             rules: {
                 name: "required",
@@ -167,6 +168,5 @@
                 }
             }
         });
-    })
 </script>
 </body>

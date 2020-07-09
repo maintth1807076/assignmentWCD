@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +41,11 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<ProductSize> productSizeList;
 
+    private String strPrice;
+
+    public Product(String name, String price, String thumbnail, String description, String categoryId) {
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -74,6 +80,14 @@ public class Product {
 
     public String getThumbnail() {
         return thumbnail;
+    }
+
+    public String getStrPrice() {
+        return strPrice;
+    }
+
+    public void setStrPrice(String strPrice) {
+        this.strPrice = strPrice;
     }
 
     public void setThumbnail(String thumbnail) {
@@ -126,6 +140,16 @@ public class Product {
     public Product() {
     }
 
+
+
+    public Product(String name, String strPrice, String thumbnail, String description, Integer categoryId) {
+        this.name = name;
+        this.strPrice = strPrice;
+        this.thumbnail = thumbnail;
+        this.description = description;
+        this.categoryId = categoryId;
+    }
+
     public Product(String name, Double price, String thumbnail, String description, Integer categoryId, Integer status) {
         this.name = name;
         this.price = price;
@@ -143,23 +167,50 @@ public class Product {
         this.categoryId = categoryId;
     }
 
-    public Product(HttpServletRequest req) {
-        this.name = req.getParameter("name");
-        this.description = req.getParameter("description");
-         this.price = Double.valueOf(req.getParameter("price"));
-    }
-
-    public Map<String, String> validate() {
-        Map<String, String> result = new HashMap<String, String>();
-        if (this.name == null) {
-            result.put("name", "Vui lòng nhập tên Product");
+    public HashMap<String, ArrayList<String>> getErrors() {
+        HashMap<String, ArrayList<String>> errors = new HashMap<>();
+        if (name == null || name.isEmpty()) {
+            ArrayList<String> nameErrors = new ArrayList<>();
+            if (errors.containsKey("name")) {
+                nameErrors = errors.get("name");
+            }
+            nameErrors.add("Product name is required!");
+            errors.put("name", nameErrors);
         }
-        if (this.description == null) {
-            result.put("description", "Vui lòng nhập description");
+        if (strPrice == null || strPrice.isEmpty()) {
+            ArrayList<String> priceErrors = new ArrayList<>();
+            if (errors.containsKey("price")) {
+                priceErrors = errors.get("price");
+            }
+            priceErrors.add("Price is required!");
+            errors.put("price", priceErrors);
         }
-        if (this.price == null || this.price < 0) {
-            result.put("price", "Price không được để trống và phải lớn hơn 0");
+        try {
+            price = Double.parseDouble(strPrice);
+        } catch (NumberFormatException ex) {
+            ArrayList<String> priceErrors = new ArrayList<>();
+            if (errors.containsKey("price")) {
+                priceErrors = errors.get("price");
+            }
+            priceErrors.add("Price must be a number!");
+            errors.put("price", priceErrors);
         }
-        return result;
+        if (thumbnail == null || thumbnail.isEmpty()) {
+            ArrayList<String> thumbnailErrors = new ArrayList<>();
+            if (errors.containsKey("thumbnail")) {
+                thumbnailErrors = errors.get("thumbnail");
+            }
+            thumbnailErrors.add("Thumbnail is required!");
+            errors.put("thumbnail", thumbnailErrors);
+        }
+        if (description == null || description.isEmpty()) {
+            ArrayList<String> descriptionErrors = new ArrayList<>();
+            if (errors.containsKey("description")) {
+                descriptionErrors = errors.get("description");
+            }
+            descriptionErrors.add("Thumbnail is required!");
+            errors.put("description", descriptionErrors);
+        }
+        return errors;
     }
 }
