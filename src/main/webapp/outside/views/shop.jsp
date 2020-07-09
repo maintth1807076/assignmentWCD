@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.language}"/>
+<fmt:setBundle basename="myProp"/>
 <body>
 <style>
     .pagination {
@@ -49,8 +52,8 @@
             <div class="row slider-text justify-content-center align-items-center">
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
-                    <h1 class="mb-3 mt-5 bread">Order Online</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Shop</span></p>
+                    <h1 class="mb-3 mt-5 bread"><fmt:message key="label.shop"/></h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="home"><fmt:message key="label.home"/></a></span> <span><fmt:message key="label.shop"/></span></p>
                 </div>
 
             </div>
