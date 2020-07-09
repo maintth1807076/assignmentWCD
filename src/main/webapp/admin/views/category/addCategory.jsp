@@ -18,7 +18,7 @@
                 <p class="card-category"></p>
             </div>
             <div class="card-body">
-                <form id="addCategory" method="post" action="admin-addCategory">
+                <form id="addCategory" method="post" action="/admin/category/create">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">

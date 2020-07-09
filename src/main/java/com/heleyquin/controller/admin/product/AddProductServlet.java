@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "AddProductServlet", urlPatterns = "/admin/product/add")
+@WebServlet(name = "AddProductServlet", urlPatterns = "/admin/product/create")
 public class AddProductServlet extends HttpServlet {
     CategoryDAO categoryDAO = new CategoryDAO();
     ProductDAO productDAO = new ProductDAO();
@@ -29,12 +29,12 @@ public class AddProductServlet extends HttpServlet {
 
         if (product.getErrors().size() > 0) {
             req.setAttribute("errors", product.getErrors());
-            req.getRequestDispatcher("/addProduct.jsp").forward(req, res);
+            req.getRequestDispatcher("/admin/views/product/addProduct.jsp").forward(req, res);
         } else {
             Product p = new Product(name, Double.parseDouble(price), thumbnail, description, Integer.parseInt(categoryId));
             product.setStatus(1);
             productDAO.insertProduct(p);
-            res.sendRedirect("admin-listProduct");
+            res.sendRedirect("/admin/product/list");
         }
     }
 
