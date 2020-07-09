@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "AddProductServlet", urlPatterns = "/admin-addProduct")
+@WebServlet(name = "AddProductServlet", urlPatterns = "/admin/product/add")
 public class AddProductServlet extends HttpServlet {
     CategoryDAO categoryDAO = new CategoryDAO();
     ProductDAO productDAO = new ProductDAO();
@@ -41,6 +41,6 @@ public class AddProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Category> categories = categoryDAO.getAllCategory();
         request.setAttribute("categories", categories);
-        request.getRequestDispatcher("admin/views/product/addProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/views/product/addProduct.jsp").forward(request, response);
     }
 }

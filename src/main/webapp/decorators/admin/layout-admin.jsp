@@ -44,18 +44,18 @@
                         <p>Product</p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTableList1">
-                        <a href="admin-listProduct" class="dropdown-item">
+                        <a href="/admin/product/list" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>List</p>
                         </a>
-                        <a href="admin-addProduct" class="dropdown-item">
+                        <a href="/admin/product/add" class="dropdown-item">
                             <i class="fas fa-hamburger"></i>
                             <p>Create</p>
                         </a>
                     </div>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="admin-users">
+                    <a class="nav-link" href="/admin/users">
                         <i class="material-icons">person</i>
                         <p>Users</p>
                     </a>
