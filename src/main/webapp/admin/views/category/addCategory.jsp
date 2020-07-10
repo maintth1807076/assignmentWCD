@@ -1,4 +1,3 @@
-<%@ page import="com.heleyquin.model.Category" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashMap" %>
 <%
@@ -23,7 +22,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Name</label>
-                                <input name="name" type="text" class="form-control"/>
+                                <input name="name" type="text" class="form-control" value="${requestScope.name}"/>
                                 <%
                                     if(errors!=null && errors.containsKey("name")){
                                 %>
@@ -42,15 +41,13 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {
-            $("#addCategory").validate({
-                rules: {
-                    name: "required",
-                },
-                messages: {
-                    name: "Vui lòng nhập tên Category",
-                }
-            });
-        })
+    $("#addCategory").validate({
+        rules: {
+            name: "required",
+        },
+        messages: {
+            name: "Category name is required!",
+        }
+    });
 </script>
 </body>

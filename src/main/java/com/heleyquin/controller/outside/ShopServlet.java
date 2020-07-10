@@ -24,8 +24,9 @@ public class ShopServlet extends HttpServlet {
         int pageNumber = 1;
         int pageSize = 3;
         int minPrice = 0;
-        int maxPrice = 100;
+        int maxPrice = 10;
         int categoryId = 0;
+        int filterId = 1;
         if(request.getParameter("pageSize") != null){
             pageSize = Integer.parseInt(request.getParameter("pageSize"));
         }
@@ -35,13 +36,16 @@ public class ShopServlet extends HttpServlet {
         if(request.getParameter("categoryId") != null) {
             categoryId = Integer.parseInt(request.getParameter("categoryId"));
         }
+        if(request.getParameter("filterId") != null) {
+            filterId = Integer.parseInt(request.getParameter("filterId"));
+        }
         if(request.getParameter("minPrice") != null) {
             minPrice = Integer.parseInt(request.getParameter("minPrice"));
         }
         if(request.getParameter("maxPrice") != null) {
-            minPrice = Integer.parseInt(request.getParameter("maxPrice"));
+            maxPrice = Integer.parseInt(request.getParameter("maxPrice"));
         }
-        List<Product> products = productDAO.getAllProductWithCriteria(categoryId, minPrice, maxPrice, 1);
+        List<Product> products = productDAO.getAllProductWithCriteria(categoryId, minPrice, maxPrice, 1, filterId);
         int productCount = products.size();
         int pageCount= (int) Math.ceil((double)productCount / pageSize);
         request.setAttribute("products", products);
@@ -50,6 +54,10 @@ public class ShopServlet extends HttpServlet {
         request.setAttribute("start", (pageNumber-1) * pageSize);
         request.setAttribute("end", (pageNumber-1) * pageSize + pageSize - 1);
         request.setAttribute("categoryId", categoryId);
+        request.setAttribute("filterId", filterId);
+        request.setAttribute("minPrice", minPrice);
+        request.setAttribute("maxPrice", maxPrice);
+        request.setAttribute("categories", categoryDAO.getAllCategory());
         request.getRequestDispatcher("/outside/views/shop.jsp").forward(request, response);
     }
 }

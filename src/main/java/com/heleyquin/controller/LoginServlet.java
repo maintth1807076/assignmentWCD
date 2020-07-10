@@ -22,20 +22,20 @@ public class LoginServlet extends HttpServlet {
         User user2 = new User(username, password);
         if (user2.getErrors().size() > 0) {
             request.setAttribute("errors", user2.getErrors());
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             if(userDAO.checkExistUser(username, password)) {
                 User user = userDAO.getUser(username, password);
                 if(user.isAdmin()) {
                     HttpSession session = request.getSession();
                     session.setAttribute("user", user);
-                    response.sendRedirect("admin");
+                    response.sendRedirect("/admin");
                     return;
                 }
                 if(user.isUser()) {
                     HttpSession session = request.getSession();
                     session.setAttribute("user", user);
-                    response.sendRedirect("home");
+                    response.sendRedirect("/user/profile");
                     return;
                 }
             } else {
@@ -60,6 +60,6 @@ public class LoginServlet extends HttpServlet {
 //        } else {
 //            request.getRequestDispatcher("/login.jsp").forward(request, response);
 //        }
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 }

@@ -1,4 +1,3 @@
-<%@ page import="com.heleyquin.model.Product" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -28,7 +27,7 @@
                                         <label>Name</label>
                                     </div>
                                     <div class="col-md-11">
-                                        <input name="name" type="text" class="form-control"/>
+                                        <input name="name" type="text" class="form-control" value="${requestScope.name}"/>
                                         <%
                                             if(errors!=null && errors.containsKey("name")){
                                         %>
@@ -49,7 +48,7 @@
                                         <label>Description</label>
                                     </div>
                                     <div class="col-md-11">
-                                        <input name="description" type="text" class="form-control"/>
+                                        <input name="description" type="text" class="form-control" value="${requestScope.description}"/>
                                         <%
                                             if(errors!=null && errors.containsKey("description")){
                                         %>
@@ -72,7 +71,7 @@
                                                 <label>Price</label>
                                             </div>
                                             <div class="col-md-10">
-                                                <input name="price" step="0.1" type="number" class="form-control"/>
+                                                <input name="price" step="0.1" type="number" class="form-control" value="${requestScope.price}"/>
                                                 <%
                                                     if(errors!=null && errors.containsKey("price")){
                                                 %>
@@ -86,7 +85,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div>
-                                        <img width="80px" id="thumbnail-preview">
+                                        <c:if test="${requestScope.thumbnail != null}">
+                                            <img width="80px" id="thumbnail-preview" src="${requestScope.thumbnail}">
+                                        </c:if>
+                                        <c:if test="${requestScope.thumbnail == null}">
+                                            <img width="80px" id="thumbnail-preview">
+                                        </c:if>
                                     </div>
                                     <div>
                                         <button type="button" id="upload_widget" class="btn btn-primary">Upload thumbnail</button>
@@ -98,7 +102,7 @@
                                             }
                                         %>
                                     </div>
-                                    <input name="thumbnail" type="hidden">
+                                    <input name="thumbnail" type="hidden" value="${requestScope.thumbnail}">
 <%--                                    <div class="row">--%>
 <%--                                        <div class="col-md-10">--%>
 <%--                                            --%>
@@ -150,6 +154,7 @@
     document.getElementById("upload_widget").addEventListener("click", function(){
         myWidget.open();
     }, false);
+
         $("#addProduct").validate({
             rules: {
                 name: "required",
@@ -159,10 +164,10 @@
                 },
             },
             messages: {
-                name: "Vui lòng nhập tên Product",
-                description: "Vui lòng nhập description",
+                name: "Product name is required!",
+                description: "Description is required!",
                 price: {
-                    required: "Vui lòng nhập giá",
+                    required: "Price is required!",
                 }
             }
         });

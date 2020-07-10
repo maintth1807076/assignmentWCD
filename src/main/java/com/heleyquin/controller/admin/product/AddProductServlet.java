@@ -5,6 +5,7 @@ import com.heleyquin.dao.ProductDAO;
 import com.heleyquin.model.Category;
 import com.heleyquin.model.Product;
 import com.heleyquin.model.User;
+import com.heleyquin.model.Validation;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -19,21 +21,27 @@ import java.util.Map;
 public class AddProductServlet extends HttpServlet {
     CategoryDAO categoryDAO = new CategoryDAO();
     ProductDAO productDAO = new ProductDAO();
+    Validation validation = new Validation();
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String name = req.getParameter("name");
         String price = req.getParameter("price");
         String thumbnail = req.getParameter("thumbnail");
         String description = req.getParameter("description");
         String categoryId = req.getParameter("categoryId");
-        Product product = new Product(name, price, thumbnail, description, categoryId);
-
-        if (product.getErrors().size() > 0) {
-            req.setAttribute("errors", product.getErrors());
-            req.getRequestDispatcher("/admin/views/product/addProduct.jsp").forward(req, res);
+        if (validation.validateProduct(req).size() > 0) {
+            req.setAttribute("errors", validation.validateProduct(req));
+            req.setAttribute("name", name);
+            req.setAttribute("price", price);
+            req.setAttribute("name", name);
+            req.setAttribute("description", description);
+            req.setAttribute("thumbnail", thumbnail);
+            doGet(req, res);
+            return;
         } else {
-            Product p = new Product(name, Double.parseDouble(price), thumbnail, description, Integer.parseInt(categoryId));
+            Product product = new Product(name, Double.parseDouble(price), thumbnail, description, Integer.parseInt(categoryId));
             product.setStatus(1);
-            productDAO.insertProduct(p);
+            product.setCreatedAt(new Timestamp(System.currentTimeMillis()));
+            productDAO.insertProduct(product);
             res.sendRedirect("/admin/product/list");
         }
     }

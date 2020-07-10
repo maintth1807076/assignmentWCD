@@ -39,6 +39,20 @@ public class ProductDAO {
         return product;
     }
 
+    public boolean checkProductByName(String name) {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Query query = em.createQuery("SELECT e FROM Product e WHERE e.name = ?1");
+        query.setParameter(1, name);
+        List<Product> list = query.getResultList();
+        em.getTransaction().commit();
+        em.close();
+        if(list.size() > 0){
+            return true;
+        }
+        return false;
+    }
+
     public Size getSize(int id) {
         em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -68,17 +82,16 @@ public class ProductDAO {
         return list;
     }
 
-    public List<Product> getAllProductWithCriteria(int categoryId, int minPrice, int maxPrice, int status) {
+    public List<Product> getAllProductWithCriteria(int categoryId, int minPrice, int maxPrice, int status, int filterId) {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(Product.class);
         Root<Product> productRoot = criteriaQuery.from(Product.class);
         Predicate predicate;
         List<Predicate> pr = new ArrayList<Predicate>();
-        if(categoryId != 0){
-            predicate
-                    = criteriaBuilder.lt(productRoot.get("price").as(Double.class), maxPrice);
+        if(maxPrice > minPrice) {
+            Predicate predicate3 = criteriaBuilder.lt(productRoot.get("price").as(Double.class), maxPrice);
             Predicate predicate1 = criteriaBuilder.gt(productRoot.get("price").as(Double.class), minPrice);
-            pr.add(predicate);
+            pr.add(predicate3);
             pr.add(predicate1);
         }
         if(categoryId != 0){
@@ -91,6 +104,23 @@ public class ProductDAO {
         pr.add(predicate2);
         predicate = criteriaBuilder.and(pr.toArray(new Predicate[]{}));
         criteriaQuery.where(predicate);
+        switch (filterId){
+            case 1:
+                criteriaQuery.orderBy(criteriaBuilder.desc(productRoot.get("createdAt")));
+                break;
+            case 2:
+                criteriaQuery.orderBy(criteriaBuilder.asc(productRoot.get("createdAt")));
+                break;
+            case 3:
+                criteriaQuery.orderBy(criteriaBuilder.desc(productRoot.get("name")));
+                break;
+            case 4:
+                criteriaQuery.orderBy(criteriaBuilder.asc(productRoot.get("name")));
+                break;
+            default:
+                criteriaQuery.orderBy(criteriaBuilder.desc(productRoot.get("createdAt")));
+                break;
+        }
         List<Product> items = em.createQuery(criteriaQuery).getResultList();
         return items;
     }

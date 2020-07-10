@@ -29,7 +29,6 @@ public class UserFilter implements Filter {
         } else {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             response.sendRedirect("/login");
-//            response.getWriter().write("Not Permission");
         }
 //        if (loggedIn || loginRequest) {
 //            filterChain.doFilter(request, response);

@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="outside/assets/css/flaticon.css">
 <link rel="stylesheet" href="outside/assets/css/icomoon.css">
-<link rel="stylesheet" href="outside/assets/css/price_rangs.css">
+<%--<link rel="stylesheet" href="outside/assets/css/price_rangs.css">--%>
 <link rel="stylesheet" href="outside/assets/css/style.css">
 
 <link rel="stylesheet" href="outside/assets/images">

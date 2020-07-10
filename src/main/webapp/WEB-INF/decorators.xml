@@ -9,6 +9,10 @@
     <decorator name="outside" page="layout.jsp">
         <pattern>/*</pattern>
     </decorator>
+    <decorator name="login" page="layout-login.jsp">
+        <pattern>/login</pattern>
+        <pattern>/user/profile</pattern>
+    </decorator>
     <decorator name="admin" page="admin/layout-admin.jsp">
         <pattern>/admin*</pattern>
         <pattern>/admin/*</pattern>

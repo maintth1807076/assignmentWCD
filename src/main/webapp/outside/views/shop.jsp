@@ -60,45 +60,6 @@
         </div>
     </div>
 </section>
-<div class="ftco-section">
-    <div class="row">
-        <c:forEach var="product" items="${requestScope.products}" begin="${requestScope.start}" end="${requestScope.end}">
-            <div class="col-md-3">
-                <div class="menu-entry">
-                    <a href="product-single?id=${product.id}" class="img"
-                       style="background-image: url(${product.thumbnail});"></a>
-                    <div class="text text-center pt-4">
-                        <h3><a href="product-single?id=${product.id}">${product.name}</a></h3>
-                        <p>${product.description}</p>
-                        <p class="price"><span>$${product.price}</span></p>
-                        <p><a href="add-cart?id=${product.id}&quantity=1" class="btn btn-primary btn-outline-primary">Add
-                            to Cart</a></p>
-                    </div>
-                </div>
-            </div>
-        </c:forEach>
-    </div>
-    <div class="pagination">
-        <ul>
-            <c:if test="${requestScope.currentPage != 1}">
-                <li><a href="shop?page=${requestScope.currentPage - 1}&categoryId=${requestScope.categoryId}"><i class="fa fa-angle-left"></i></a></li>
-            </c:if>
-            <c:forEach begin="1" end="${requestScope.noOfPages}" var="i">
-                <c:choose>
-                    <c:when test="${requestScope.currentPage == i}">
-                        <li class="active"><span>${i}</span></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li><a href="shop?page=${i}&categoryId=${requestScope.categoryId}">${i}</a></li>
-                    </c:otherwise>
-                </c:choose>
-            </c:forEach>
-            <c:if test="${requestScope.currentPage < requestScope.noOfPages}">
-                <li><a href="shop?page=${requestScope.currentPage + 1}&categoryId=${requestScope.categoryId}"><i class="fa fa-angle-right"></i></a></li>
-            </c:if>
-        </ul>
-    </div>
-</div>
 <!--================Category Product Area =================-->
 <section class="cat_product_area section_padding">
     <div class="container">
@@ -111,19 +72,12 @@
                         </div>
                         <div class="widgets_inner">
                             <div class="nav ftco-animate justify-content-center" id="v-pills-tab" role="tablist">
-                                <ul class="list">
+                                <select name="" onchange="location = this.value;">
+                                    <option value="shop?page=${requestScope.currentPage}&categoryId=0&filterId=${requestScope.filterId}" ${requestScope.categoryId == 0 ? "selected" : ""}>All</option>
                                     <c:forEach var="category" items="${requestScope.categories}">
-                                    <li>
-                                        <a class="nav-link " id="v-pills-${category.id}-tab" data-toggle="pill"
-                                           href="#v-pills-${category.id}"
-                                           role="tab" aria-controls="v-pills-0"
-                                           aria-selected="${category.id == 1 ? "true" : "false"}">${category.name}</a>
-
-
-                                    </li>
+                                        <option ${requestScope.categoryId == category.id ? "selected" : ""} value="shop?page=${requestScope.currentPage}&categoryId=${category.id}&filterId=${requestScope.filterId}">${category.name}</option>
                                     </c:forEach>
-
-                                </ul>
+                                </select>
                             </div>
                         </div>
                     </aside>
@@ -134,16 +88,33 @@
                         <div class="widgets_inner">
                             <div class="range_item">
                                 <!-- <div id="slider-range"></div> -->
-                                <input type="text" class="js-range-slider" value=""/>
+<%--                                <input type="text" class="js-range-slider" value=""/>--%>
+<%--                                <div class="d-flex">--%>
+<%--                                    <div class="price_text">--%>
+<%--                                        <p>Price :</p>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="price_value d-flex justify-content-center">--%>
+<%--                                        <input type="text" class="js-input-from" id="amount1"/>--%>
+<%--                                        <span>to</span>--%>
+<%--                                        <input type="text" class="js-input-to" id="amount2"/>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
                                 <div class="d-flex">
                                     <div class="price_text">
                                         <p>Price :</p>
                                     </div>
-                                    <div class="price_value d-flex justify-content-center">
-                                        <input type="text" class="js-input-from" id="amount1" readonly/>
-                                        <span>to</span>
-                                        <input type="text" class="js-input-to" id="amount2" readonly/>
-                                    </div>
+                                    <form action="shop" method="get">
+                                        <div class="price_value d-flex justify-content-center">
+                                            <input type="hidden" value="${requestScope.categoryId}" name="categoryId">
+                                            <input type="hidden" value="${requestScope.filterId}" name="filterId">
+                                            <input type="hidden" value="${requestScope.currentPage}" name="currentPage">
+                                            <input type="number" value="${requestScope.minPrice}" class="js-input-from" name="minPrice" min="0"/>
+                                            <span>to</span>
+                                            <input type="number" value="${requestScope.maxPrice}" class="js-input-to" name="maxPrice" max="10"/>
+                                            <span>to</span>
+                                            <input type="submit" value="Filter">
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -156,15 +127,14 @@
                         <div class="product_top_bar d-flex justify-content-between align-items-center">
 
                             <div class="single_product_menu d-flex">
-                                <h5>short by : </h5>
-                                <select>
-                                    <option data-display="Select">name</option>
-                                    <option value="1">price</option>
-                                    <option value="2">product</option>
+                                <h5>Short by : </h5>
+                                <select name="" id="" onchange="location = this.value;">
+                                    <option ${requestScope.filterId == 1 ? "selected" : ""} value="shop?page=${requestScope.currentPage}&categoryId=${requestScope.categoryId}&filterId=1">New product</option>
+                                    <option ${requestScope.filterId == 2 ? "selected" : ""} value="shop?page=${requestScope.currentPage}&categoryId=${requestScope.categoryId}&filterId=2">Old product</option>
+                                    <option ${requestScope.filterId == 3 ? "selected" : ""} value="shop?page=${requestScope.currentPage}&categoryId=${requestScope.categoryId}&filterId=3">Z - A</option>
+                                    <option ${requestScope.filterId == 4 ? "selected" : ""} value="shop?page=${requestScope.currentPage}&categoryId=${requestScope.categoryId}&filterId=4">A - Z</option>
                                 </select>
                             </div>
-
-
                             <div class="single_product_menu d-flex">
                                 <div class="input-group" style="float: right;">
                                     <input type="text" class="form-control" placeholder="search"
@@ -178,37 +148,50 @@
                         </div>
                     </div>
                 </div>
-
-                        <div class="tab-content ftco-animate" id="v-pills-tabContent">
-                            <c:forEach var="category" items="${requestScope.categories}">
-                                <div class="tab-pane fade ${category.id == 1 ? " show active" : ""}" id="v-pills-${category.id}" role="tabpanel"
-                                     aria-labelledby="v-pills-${category.id}-tab">
-                                    <div class="row">
-                                        <c:forEach var="product" items="${category.productList}">
-                                            <div class="col-md-3">
-                                                <div class="menu-entry">
-                                                    <a href="product-single?id=${product.id}" class="img"
-                                                       style="background-image: url(${product.thumbnail});"></a>
-                                                    <div class="text text-center pt-4">
-                                                        <h3><a href="product-single?id=${product.id}">${product.name}</a></h3>
-                                                        <p>${product.description}</p>
-                                                        <p class="price"><span>$${product.price}</span></p>
-                                                        <p><a href="add-cart?id=${product.id}&quantity=1" class="btn btn-primary btn-outline-primary">Add
-                                                            to Cart</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </c:forEach>
-                                    </div>
+                <div class="row">
+                    <c:forEach var="product" items="${requestScope.products}" begin="${requestScope.start}" end="${requestScope.end}">
+                        <div class="col-md-4">
+                            <div class="menu-entry">
+                                <a href="product-single?id=${product.id}" class="img"
+                                   style="background-image: url(${product.thumbnail});"></a>
+                                <div class="text text-center pt-4">
+                                    <h3><a href="product-single?id=${product.id}">${product.name}</a></h3>
+                                    <p>${product.description}</p>
+                                    <p class="price"><span>$${product.price}</span></p>
+                                    <p><a href="add-cart?id=${product.id}&quantity=1" class="btn btn-primary btn-outline-primary">Add
+                                        to Cart</a></p>
                                 </div>
-                            </c:forEach>
+                            </div>
                         </div>
-                    </div>
+                    </c:forEach>
+                </div>
+                <div class="pagination">
+                    <ul>
+                        <c:if test="${requestScope.currentPage != 1}">
+                            <li><a href="shop?page=${requestScope.currentPage - 1}&categoryId=${requestScope.categoryId}&filterId=${requestScope.filterId}"><i class="fa fa-angle-left"></i></a></li>
+                        </c:if>
+                        <c:forEach begin="1" end="${requestScope.noOfPages}" var="i">
+                            <c:choose>
+                                <c:when test="${requestScope.currentPage == i}">
+                                    <li class="active"><span>${i}</span></li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li><a href="shop?page=${i}&categoryId=${requestScope.categoryId}&filterId=${requestScope.filterId}">${i}</a></li>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                        <c:if test="${requestScope.currentPage < requestScope.noOfPages}">
+                            <li><a href="shop?page=${requestScope.currentPage + 1}&categoryId=${requestScope.categoryId}&filterId=${requestScope.filterId}"><i class="fa fa-angle-right"></i></a></li>
+                        </c:if>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-
     </div>
 </section>
+<script type="text/javascript">
+
+</script>
 <!--================End Category Product Area =================-->
 <%--<section class="ftco-menu mb-5 pb-5">--%>
 <%--    <div class="container">--%>

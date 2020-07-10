@@ -39,6 +39,22 @@
     }
 </style>
 <div class="row">
+    <div class="col-3">
+        <select name="" onchange="location = this.value;">
+            <option value="/admin/product/list?page=${requestScope.currentPage}&categoryId=0&filterId=${requestScope.filterId}" ${requestScope.categoryId == 0 ? "selected" : ""}>All</option>
+            <c:forEach var="category" items="${requestScope.categories}">
+                <option ${requestScope.categoryId == category.id ? "selected" : ""} value="/admin/product/list?page=${requestScope.currentPage}&categoryId=${category.id}&filterId=${requestScope.filterId}">${category.name}</option>
+            </c:forEach>
+        </select>
+    </div>
+    <div class="col-3">
+        <select name="" id="" onchange="location = this.value;">
+            <option ${requestScope.status == 1 ? "selected" : ""} value="/admin/product/list?page=${requestScope.currentPage}&categoryId=${requestScope.categoryId}&status=1">Active</option>
+            <option ${requestScope.status == 0 ? "selected" : ""} value="/admin/product/list?page=${requestScope.currentPage}&categoryId=${requestScope.categoryId}&status=0">Delete</option>
+        </select>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-12">
         <div class="card card-plain">
             <div class="card-header card-header-primary">
@@ -58,7 +74,7 @@
                         <th/>
                         </thead>
                         <tbody>
-                        <c:forEach var="product" items="${requestScope.products}">
+                        <c:forEach var="product" items="${requestScope.products}" begin="${requestScope.start}" end="${requestScope.end}">
                             <tr>
                                 <td>
                                     <div class="form-check">
@@ -72,8 +88,8 @@
                                 </td>
                                 <td>${product.name}</td>
                                 <td>${product.description}</td>
-                                <c:url var="imgUrl" value='../../${product.thumbnail}'/>
-                                <td><img width="100px" alt="" src="${imgUrl}"/></td>
+<%--                                <c:url var="imgUrl" value='${product.thumbnail}'/>--%>
+                                <td><img width="100px" alt="" src="${product.thumbnail}"/></td>
                                 <td>${product.price}</td>
                                 <td>${product.category.name}</td>
                                 <td class="td-actions text-right">
@@ -84,7 +100,7 @@
                                         </div>
                                         <div class="col-6">
                                             <span>
-                                                <form action="admin-deleteProduct" method="post">
+                                                <form action="/admin/product/delete" method="post">
                                                     <input type="hidden" name="id" value="${product.id}">
                                                     <button type="submit">
                                                         <i class="material-icons">close</i>
@@ -107,7 +123,7 @@
 <div class="pagination">
     <ul>
         <c:if test="${requestScope.currentPage != 1}">
-            <li><a href="admin-listProduct?page=${requestScope.currentPage - 1}"><i class="fa fa-angle-left"></i></a></li>
+            <li><a href="/admin/product/list?page=${requestScope.currentPage - 1}&categoryId=${requestScope.categoryId}&filterId=${requestScope.filterId}"><i class="fa fa-angle-left"></i></a></li>
         </c:if>
         <c:forEach begin="1" end="${requestScope.noOfPages}" var="i">
             <c:choose>
@@ -115,12 +131,12 @@
                     <li class="active"><span>${i}</span></li>
                 </c:when>
                 <c:otherwise>
-                    <li><a href="admin-listProduct?page=${i}">${i}</a></li>
+                    <li><a href="/admin/product/list?page=${i}&categoryId=${requestScope.categoryId}&filterId=${requestScope.filterId}">${i}</a></li>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
         <c:if test="${requestScope.currentPage < requestScope.noOfPages}">
-            <li><a href="admin-listProduct?page=${requestScope.currentPage + 1}"><i class="fa fa-angle-right"></i></a></li>
+            <li><a href="/admin/product/list?page=${requestScope.currentPage + 1}&categoryId=${requestScope.categoryId}&filterId=${requestScope.filterId}"><i class="fa fa-angle-right"></i></a></li>
         </c:if>
     </ul>
 </div>

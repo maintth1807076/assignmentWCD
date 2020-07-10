@@ -16,7 +16,7 @@ public class DeleteProductServlet extends HttpServlet {
         ProductDAO productDAO = new ProductDAO();
         String id = request.getParameter("id");
         productDAO.deleteProduct(Integer.parseInt(id));
-        response.sendRedirect("admin/product/list");
+        response.sendRedirect("/admin/product/list");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -3,6 +3,7 @@ package com.heleyquin.model;
 import javax.persistence.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +18,15 @@ public class Category {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "createdAt")
+    private Timestamp createdAt;
+
+    @Column(name = "updatedAt")
+    private Timestamp updatedAt;
+
+    @Column(name = "deletedAt")
+    private Timestamp deletedAt;
 
     public Integer getId() {
         return id;

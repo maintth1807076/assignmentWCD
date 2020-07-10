@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +32,15 @@ public class Product {
     @Column(name= "status")
     private Integer status;
 
+    @Column(name = "createdAt")
+    private Timestamp createdAt;
+
+    @Column(name = "updatedAt")
+    private Timestamp updatedAt;
+
+    @Column(name = "deletedAt")
+    private Timestamp deletedAt;
+
     @Column(name = "categoryId")
     private Integer categoryId;
 
@@ -40,8 +50,6 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private List<ProductSize> productSizeList;
-    @Column(name = "strPrice")
-    private String strPrice;
 
     public Product(String name, String price, String thumbnail, String description, String categoryId) {
     }
@@ -82,14 +90,6 @@ public class Product {
         return thumbnail;
     }
 
-    public String getStrPrice() {
-        return strPrice;
-    }
-
-    public void setStrPrice(String strPrice) {
-        this.strPrice = strPrice;
-    }
-
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
@@ -100,6 +100,30 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Timestamp getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(Timestamp deletedAt) {
+        this.deletedAt = deletedAt;
     }
 
     public Integer getCategoryId() {
@@ -140,16 +164,6 @@ public class Product {
     public Product() {
     }
 
-
-
-    public Product(String name, String strPrice, String thumbnail, String description, Integer categoryId) {
-        this.name = name;
-        this.strPrice = strPrice;
-        this.thumbnail = thumbnail;
-        this.description = description;
-        this.categoryId = categoryId;
-    }
-
     public Product(String name, Double price, String thumbnail, String description, Integer categoryId, Integer status) {
         this.name = name;
         this.price = price;
@@ -165,52 +179,5 @@ public class Product {
         this.thumbnail = thumbnail;
         this.description = description;
         this.categoryId = categoryId;
-    }
-
-    public HashMap<String, ArrayList<String>> getErrors() {
-        HashMap<String, ArrayList<String>> errors = new HashMap<>();
-        if (name == null || name.isEmpty()) {
-            ArrayList<String> nameErrors = new ArrayList<>();
-            if (errors.containsKey("name")) {
-                nameErrors = errors.get("name");
-            }
-            nameErrors.add("Product name is required!");
-            errors.put("name", nameErrors);
-        }
-        if (strPrice == null || strPrice.isEmpty()) {
-            ArrayList<String> priceErrors = new ArrayList<>();
-            if (errors.containsKey("price")) {
-                priceErrors = errors.get("price");
-            }
-            priceErrors.add("Price is required!");
-            errors.put("price", priceErrors);
-        }
-//        try {
-//            price = Double.parseDouble(strPrice);
-//        } catch (NumberFormatException ex) {
-//            ArrayList<String> priceErrors = new ArrayList<>();
-//            if (errors.containsKey("price")) {
-//                priceErrors = errors.get("price");
-//            }
-//            priceErrors.add("Price must be a number!");
-//            errors.put("price", priceErrors);
-//        }
-        if (thumbnail == null || thumbnail.isEmpty()) {
-            ArrayList<String> thumbnailErrors = new ArrayList<>();
-            if (errors.containsKey("thumbnail")) {
-                thumbnailErrors = errors.get("thumbnail");
-            }
-            thumbnailErrors.add("Thumbnail is required!");
-            errors.put("thumbnail", thumbnailErrors);
-        }
-        if (description == null || description.isEmpty()) {
-            ArrayList<String> descriptionErrors = new ArrayList<>();
-            if (errors.containsKey("description")) {
-                descriptionErrors = errors.get("description");
-            }
-            descriptionErrors.add("Description is required!");
-            errors.put("description", descriptionErrors);
-        }
-        return errors;
     }
 }

@@ -1,8 +1,11 @@
 package com.heleyquin.controller.outside;
 
 import com.heleyquin.dao.CategoryDAO;
+import com.heleyquin.dao.Manager;
 import com.heleyquin.dao.ProductDAO;
+import com.heleyquin.model.Data;
 
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,14 +15,14 @@ import java.io.IOException;
 
 @WebServlet(name = "HomeServlet", urlPatterns = "/home")
 public class HomeServlet extends HttpServlet {
-    private CategoryDAO categoryDAO = new CategoryDAO();
-    private ProductDAO productDAO = new ProductDAO();
+//    private CategoryDAO categoryDAO = new CategoryDAO();
+//    private ProductDAO productDAO = new ProductDAO();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("outside/views/home.jsp").forward(request, response);
+        request.getRequestDispatcher("/outside/views/home.jsp").forward(request, response);
     }
 }
