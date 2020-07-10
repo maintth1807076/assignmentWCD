@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditCategoryServlet", urlPatterns = "/admin-editCategory")
+@WebServlet(name = "EditCategoryServlet", urlPatterns = "/admin/category/edit")
 public class EditCategoryServlet extends HttpServlet {
     CategoryDAO categoryDAO = new CategoryDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,7 +21,7 @@ public class EditCategoryServlet extends HttpServlet {
         category.setId(Integer.parseInt(id));
         category.setName(name);
         categoryDAO.updateCategory(category);
-        response.sendRedirect("admin-listCategory");
+        response.sendRedirect("admin/category/list");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,6 +31,6 @@ public class EditCategoryServlet extends HttpServlet {
         }
         Category category = categoryDAO.getCategory(Integer.parseInt(id));
         request.setAttribute("category", category);
-        request.getRequestDispatcher("admin/views/category/edit.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/views/category/edit.jsp").forward(request, response);
     }
 }

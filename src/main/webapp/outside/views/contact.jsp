@@ -1,3 +1,6 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.language}"/>
+<fmt:setBundle basename="myProp"/>
 <body>
 <section class="home-slider owl-carousel">
 
@@ -7,8 +10,8 @@
             <div class="row slider-text justify-content-center align-items-center">
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
-                    <h1 class="mb-3 mt-5 bread">Contact Us</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="home">Home</a></span> <span>Contact</span>
+                    <h1 class="mb-3 mt-5 bread"><fmt:message key="label.contact"/></h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="home"><fmt:message key="label.home"/></a></span> <span><fmt:message key="label.contact"/></span>
                     </p>
                 </div>
 
@@ -23,7 +26,7 @@
             <div class="col-md-4 contact-info ftco-animate">
                 <div class="row">
                     <div class="col-md-12 mb-4">
-                        <h2 class="h4">Contact Information</h2>
+                        <h2 class="h4"><fmt:message key="label.contactInfor"/></h2>
                     </div>
                     <div class="col-md-12 mb-3">
                         <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>

@@ -1,15 +1,14 @@
 <%@ page import="com.heleyquin.model.Category" %>
-<%@ page import="java.util.Map" %>
-<%@ page import="java.util.HashMap" %><%
-    Category old = (Category) request.getAttribute("old");
-    if (old == null) {
-        old = new Category();
-    }
-    Map<String, String> errors = (Map<String, String>) request.getAttribute("errors");
-    if (errors == null) {
-        errors = new HashMap<>();
-    }
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.HashMap" %>
+<%
+    HashMap<String, ArrayList<String>> errors = (HashMap<String, ArrayList<String>>) request.getAttribute("errors");
 %>
+<style>
+    .error {
+        color: red;
+    }
+</style>
 <body>
 <div class="row">
     <div class="col-md-8 container">
@@ -19,17 +18,16 @@
                 <p class="card-category"></p>
             </div>
             <div class="card-body">
-                <form id="addCategory" method="post" action="admin-addCategory">
+                <form id="addCategory" method="post" action="/admin/category/create">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Name</label>
-                                <input name="name" type="text" class="form-control"
-                                       value="<%= old.getName() != null ? old.getName() : ""%>" required/>
+                                <input name="name" type="text" class="form-control"/>
                                 <%
-                                    if (errors.get("name") != null) {
+                                    if(errors!=null && errors.containsKey("name")){
                                 %>
-                                <small class="form-text text-danger"><%= errors.get("name")%></small>
+                                <p class="error">* <%=errors.get("name").get(0)%></p>
                                 <%
                                     }
                                 %>
@@ -45,7 +43,6 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#add-category').click(function () {
             $("#addCategory").validate({
                 rules: {
                     name: "required",
@@ -55,6 +52,5 @@
                 }
             });
         })
-    });
 </script>
 </body>

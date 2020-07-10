@@ -3,6 +3,9 @@
     <excludes>
         <pattern>/login</pattern>
     </excludes>
+    <excludes>
+        <pattern>/register</pattern>
+    </excludes>
     <decorator name="outside" page="layout.jsp">
         <pattern>/*</pattern>
     </decorator>

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListProductServlet", urlPatterns = "/admin-listProduct")
+@WebServlet(name = "ListProductServlet", urlPatterns = "/admin/product/list")
 public class ListProductServlet extends HttpServlet {
     ProductDAO productDAO = new ProductDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,6 +30,6 @@ public class ListProductServlet extends HttpServlet {
         request.setAttribute("products", products);
         request.setAttribute("noOfPages", pageCount);
         request.setAttribute("currentPage", pageNumber);
-        request.getRequestDispatcher("admin/views/product/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/views/product/list.jsp").forward(request, response);
     }
 }

@@ -72,13 +72,15 @@
                                 </td>
                                 <td>${product.name}</td>
                                 <td>${product.description}</td>
-                                <td><img width="100px" alt="" src="${product.thumbnail}"/></td>
+                                <c:url var="imgUrl" value='../../${product.thumbnail}'/>
+                                <td><img width="100px" alt="" src="${imgUrl}"/></td>
                                 <td>${product.price}</td>
                                 <td>${product.category.name}</td>
                                 <td class="td-actions text-right">
                                     <div class="row">
                                         <div class="col-6">
-                                            <span><a href="admin-editProduct?id=${product.id}" class="material-icons">edit</a></span>
+                                            <c:url var="editUrl" value='/admin/product/edit?id=${product.id}'/>
+                                            <span><a href="${editUrl}" class="material-icons">edit</a></span>
                                         </div>
                                         <div class="col-6">
                                             <span>

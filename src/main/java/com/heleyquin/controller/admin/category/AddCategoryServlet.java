@@ -3,6 +3,7 @@ package com.heleyquin.controller.admin.category;
 import com.heleyquin.dao.CategoryDAO;
 import com.heleyquin.model.Category;
 import com.heleyquin.model.Product;
+import com.heleyquin.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,20 +17,15 @@ import java.util.Map;
 public class AddCategoryServlet extends HttpServlet {
     CategoryDAO categoryDAO = new CategoryDAO();
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        Category category = new Category(req);
-        Map<String, String> validator = category.validate();
-        if (validator.keySet().size() > 0) {
-            req.setAttribute("old", category);
-            req.setAttribute("errors", validator);
-            doGet(req, res);
-            return;
-        }
-
         String name = req.getParameter("name");
-        Category category1 = new Category();
-        category.setName(name);
-        categoryDAO.insertCategory(category1);
-        res.sendRedirect("admin-listCategory");
+        Category category = new Category(name);
+        if (category.getErrors().size() > 0) {
+            req.setAttribute("errors", category.getErrors());
+            req.getRequestDispatcher("/admin/views/category/addCategory.jsp").forward(req, res);
+        } else {
+            categoryDAO.insertCategory(category);
+            res.sendRedirect("/admin/category/list");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
