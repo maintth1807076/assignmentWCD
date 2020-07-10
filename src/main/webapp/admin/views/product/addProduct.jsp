@@ -28,7 +28,7 @@
                                         <label>Name</label>
                                     </div>
                                     <div class="col-md-11">
-                                        <input name="name" type="text" class="form-control"/>
+                                        <input name="name" type="text" class="form-control" value="${name}"/>
                                         <%
                                             if (errors != null && errors.containsKey("name")) {
                                         %>
@@ -50,7 +50,7 @@
                                         <label>Description</label>
                                     </div>
                                     <div class="col-md-11">
-                                        <input name="description" type="text" class="form-control"/>
+                                        <input name="description" type="text" class="form-control" value="${description}"/>
                                         <%
                                             if (errors != null && errors.containsKey("description")) {
                                         %>
@@ -74,7 +74,7 @@
                                                 <label>Price</label>
                                             </div>
                                             <div class="col-md-10">
-                                                <input name="price" step="0.1" type="number" class="form-control"/>
+                                                <input name="price" step="0.1" type="number" class="form-control" value="${price}" />
                                                 <%
                                                     if (errors != null && errors.containsKey("price")) {
                                                 %>
@@ -92,7 +92,7 @@
                                         <img width="80px" id="thumbnail-preview">
                                     </div>
                                     <div>
-                                        <button type="button" id="upload_widget" class="btn btn-primary">Upload
+                                        <button type="button" name="thumbnail" id="upload_widget"  class="btn btn-primary">Upload
                                             thumbnail
                                         </button>
                                         <%
@@ -104,7 +104,7 @@
                                             }
                                         %>
                                     </div>
-                                    <input name="thumbnail" type="hidden">
+                                    <input name="thumbnail" value="${thumbnail}" type="hidden">
                                     <%--                                    <div class="row">--%>
                                     <%--                                        <div class="col-md-10">--%>
                                     <%--                                            --%>
@@ -124,7 +124,7 @@
                                     <label class="bmd-label-floating">Category</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" name="categoryId">
+                                    <select class="form-control" name="categoryId" value="${categoryId}">
                                         <c:forEach var="category" items="${requestScope.categories}">
                                             <option value="${category.id}">${category.name}</option>
                                         </c:forEach>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    <button id="add-product" type="submit" class="btn btn-primary pull-right">Add</button>
+                    <button id="add-product" name="submit" type="submit" class="btn btn-primary pull-right">Add</button>
                     <div class="clearfix"></div>
                 </form>
             </div>

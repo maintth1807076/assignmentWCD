@@ -28,6 +28,11 @@ public class AddProductServlet extends HttpServlet {
         Product product = new Product(name, price, thumbnail, description, categoryId);
 
         if (product.getErrors().size() > 0) {
+            req.setAttribute("name", req.getParameter("name"));
+            req.setAttribute("price", req.getParameter("price"));
+            req.setAttribute("thumbnail", req.getParameter("thumbnail"));
+            req.setAttribute("description", req.getParameter("description"));
+            req.setAttribute("categoryId", req.getParameterValues("categoryId"));
             req.setAttribute("errors", product.getErrors());
             req.getRequestDispatcher("/admin/views/product/addProduct.jsp").forward(req, res);
         } else {
